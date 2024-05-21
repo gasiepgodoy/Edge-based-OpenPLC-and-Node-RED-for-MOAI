@@ -1,6 +1,8 @@
 # Moleculer_Framework_PSM_Blocks
 Moleculer_Framework_PSM_Blocks for OpenPLC.   
 
+![My Image](src/docs/PSM-Blocks.png)
+
 This is the library set of blocks  which allows to create the following blocks on openPLC:  
    
 DAQ_AO_U_WT,  
