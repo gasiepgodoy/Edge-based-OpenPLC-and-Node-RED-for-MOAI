@@ -1,7 +1,9 @@
 # Edge-based-OpenPLC-and-Node-RED-for-MOAI
 Repository containing Node-RED flow and Dashboards/Gauges for Pilot Plant process view.   
 These contents are the backup files about the experiments development for Eduardo Amaro Viana MSc. Course at Unesp-Sorocaba.
-   
+
+![My Image](src/docs/Unesp-logo.png)
+
 Libraries created for Open PLC and Node-REd were:
       
 DAQ_AO_U_WT,  
