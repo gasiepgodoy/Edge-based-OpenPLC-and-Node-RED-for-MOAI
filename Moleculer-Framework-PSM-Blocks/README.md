@@ -14,5 +14,5 @@ DAQ_AO_OD_RD,
 DAQ_DI_OPTO  
 PID 4.0.  
    
-Compile and generate the fc (Moleculer_Framework_PSM_Blocks.st) file and using openPLC importing tool generate the library.   
+Open this folder on OpenPLC editor to see the blocks, you may compile and generate the file Moleculer_Framework_PSM_Blocks.st  and using openPLC importing tool generate the library.   
 Please carry on some tests and provide feedback to: eduardo.viana@unesp.br   
