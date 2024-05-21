@@ -1,0 +1,1312 @@
+<script type="text/javascript">
+    "use strict";
+    /*moleculer-config*/
+    RED.nodes.registerType('moleculer-config', {
+        category: 'config',
+        defaults: {
+            name: {
+                value: "",
+                required: true
+            },
+            options: {
+                value: "{}",
+                validate: RED.validators.typedInput("optionsType"),
+                required: true
+            }
+        },
+        label: function () {
+            return this.name || 'Config'
+        },
+        oneditprepare: function () {
+            $("#node-config-input-options").typedInput({
+                default: 'json',
+                typeField: $("#node-config-input-optionsType"),
+                types: ['flow', 'global', 'json', 'env']
+            });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-globe"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-options"><i class="fa fa-server"></i> Options</label>
+        <input type="text" id="node-config-input-options">
+        <input type="hidden" id="node-config-input-optionsType">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-config">
+    <p>Moleculer Broker Config</p>
+    <h3>Details</h3>
+    <p>Name: Name of broker config</p>
+    <p>Options: JSON broker config options. <a href="https://moleculer.services/docs/0.13/broker.html#Full-options-object">See more here.</a></p>
+</script>
+
+<script type="text/javascript">
+    "use strict";
+    /*moleculer-service-config*/
+    RED.nodes.registerType('moleculer-service-config', {
+        category: 'config',
+        defaults: {
+            name: {
+                value: "",
+                required: true
+            },
+            version: {
+                value: "",
+                required: false
+            },
+            settings: {
+                value: "{}",
+                validate: RED.validators.typedInput("settingsType"),
+                required: false
+            }
+        },
+        label: function () {
+            return (this.version !== "") ? (this.version + '.' + this.name) : (this.name)
+        },
+        oneditprepare: function () {
+            $("#node-config-input-settings").typedInput({
+                default: 'json',
+                typeField: $("#node-config-input-settingsType"),
+                types: ['flow', 'global', 'json', 'env']
+            });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-service-config">
+<div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-globe"></i> Name</label>
+    <input type="text" id="node-config-input-name">
+</div>
+<div class="form-row">
+    <label for="node-config-input-version"><i class="fa fa-globe"></i> Version</label>
+    <input type="text" id="node-config-input-version">
+</div>
+<div class="form-row">
+    <label for="node-config-input-settings"><i class="fa fa-server"></i> Settings</label>
+    <input type="text" id="node-config-input-settings">
+    <input type="hidden" id="node-config-input-settingsType">
+</div>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-service-config">
+<p>Moleculer Service Config</p>
+<h3>Details</h3>
+    <p>Name: Name of Service</p>
+    <p>Version: Version of Service</p>
+    <p>Settings: JSON service settings. </p>
+</script>
+
+
+
+<script type="text/javascript">
+    /*moleculer-event*/
+    RED.nodes.registerType('moleculer-event', {
+        category: 'Moleculer',
+        outputs: 1,
+        color: "#ffffff",
+        icon: "moleculer_big.png",
+        paletteLabel: "event",
+        defaults: {
+            broker: {
+                value: "",
+                type: "moleculer-config"
+            },
+            service: {
+                value: "",
+                type: "moleculer-service-config"
+            },
+            name: {
+                value: ""
+            },
+            topic: {
+                value: ""
+            },
+            group: {
+                value: ""
+            }
+        },
+        label: function () {
+            return this.name || this.topic || "event";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-event">
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-service"><i class="fa fa-globe"></i> Service</label>
+        <input type="text" id="node-input-service" placeholder="Service">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="icon-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row">
+        <label for="node-input-group"><i class="icon-tasks"></i> Group</label>
+        <input type="text" id="node-input-group" placeholder="Group">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-event">
+    <p>Moleculer Event</p>
+<h3>Details</h3>
+    <p>Broker: Name of Broker</p>
+    <p>Service: Name of Service</p>
+    <p>Name: Name of Node</p>
+    <p>Topic: Name of Topic/Event. </p>
+    <p>Group: Comma separated Groups. </p>
+</script>
+
+
+<script type="text/javascript">
+    /*moleculer-emit*/
+    RED.nodes.registerType('moleculer-emit', {
+        category: 'Moleculer',
+        outputs: 0,
+        inputs: 1,
+        color: "#ffffff",
+        icon: "moleculer_big.png",
+        paletteLabel: "emit",
+        defaults: {
+            broker: {
+                value: "",
+                type: "moleculer-config"
+            },
+            name: {
+                value: ""
+            },
+            topic: {
+                value: ""
+            },
+            broadcast: {
+                value: false
+            },
+            group: {
+                value: ""
+            }
+        },
+        label: function () {
+            return this.name || this.topic || ((this.broadcast) ? ('broadcast') : ('emit'));
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-emit">
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="icon-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+    <div class="form-row" id="node-broadcast">
+        <label for="node-input-broadcast">&nbsp;</label>
+        <input type="checkbox" id="node-input-broadcast" style="display:inline-block; width:15px; vertical-align:baseline;"> Broadcast
+    </div>
+    <div class="form-row">
+        <label for="node-input-group"><i class="icon-tasks"></i> Group</label>
+        <input type="text" id="node-input-group" placeholder="Group">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-emit">
+    <p>Moleculer Emit</p>
+    <h3>Details</h3>
+    <p>Broker: Name of Broker</p>
+    <p>Name: Name of Node</p>
+    <p>Topic: Name of Topic/Event. Overridden by msg.topic. </p>
+    <p>Broadcast: Broadcast instead emit. Overridden by msg.broadcast. </p>
+    <p>Group: groups comma separated. Overridden by msg.group. </p>
+</script>
+
+
+<script type="text/javascript">
+    /*moleculer-call*/
+    RED.nodes.registerType('moleculer-call', {
+        category: 'Moleculer',
+        outputs: 1,
+        inputs: 1,
+        color: "#ffffff",
+        icon: "moleculer_big.png",
+        paletteLabel: "call",
+        defaults: {
+            broker: {
+                value: "",
+                type: "moleculer-config"
+            },
+            name: {
+                value: ""
+            },
+            topic: {
+                value: ""
+            },
+            options: {
+                value: "{}",
+                validate: RED.validators.typedInput("optionsType"),
+                required: false
+            }
+        },
+        label: function () {
+            return this.name || this.topic || "call";
+        },
+        oneditprepare: function () {
+            $("#node-input-options").typedInput({
+                default: 'json',
+                typeField: $("#node-input-optionsType"),
+                types: ['flow', 'global', 'json', 'env']
+            });
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-call">
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="icon-tasks"></i> Action</label>
+        <input type="text" id="node-input-topic" placeholder="Action">
+    </div>
+    <div class="form-row">
+        <label for="node-input-options"><i class="fa fa-server"></i> Options</label>
+        <input type="text" id="node-input-options">
+        <input type="hidden" id="node-input-optionsType">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-call">
+    <p>Moleculer Call</p>
+    <h3>Details</h3>
+    <p>Broker: Name of Broker</p>
+    <p>Action: Name of Action. Overridden by msg.action. </p>
+    <p>Options: JSON options. <a href="https://moleculer.services/docs/0.13/actions.html#Syntax">See more here</a> </p>
+</script>
+
+<script type="text/javascript">
+    /*Call DAQ_AI_I*/
+RED.nodes.registerType('moleculer-DAQ_AI_I', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_AI_I",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        pv:          {value: "", required: true},
+        stack:          {value: "", required: true},   /*it turns the data as persistent - eviana*/
+     
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_AI_I";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+    },
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_AI_I">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>    
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-pv"><i class="fa fa-tag"></i> Select channel</label>
+        <select id="node-input-pv">
+            <option value="Channel_1">Channel 1</option>
+            <option value="Channel_2">Channel 2</option>
+            <option value="Channel_3">Channel 3</option>
+            <option value="Channel_4">Channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p>This node reads the analog current inputs present in the pilot plant</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>Channel 1:</b> PIT129 Tank Pressure Sensor (T02)</li>
+        <li><b>Channel 2:</b> PIT118 Line Pressure Sensor</li>
+        <li><b>Channel 3:</b> LIT125 Tank Level Sensor (T01)</li>
+        <li><b>Channel 4:</b> FIT116 Flow Rate Sensor</li>
+    </ul>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-DAQ_AI_I">
+    <p>Moleculer Call</p>
+    <h3>Details</h3>
+    <p>Broker: Name of Broker</p>
+    <p>Action: Name of Action. Overridden by msg.action. </p>
+    <p>Options: JSON options. <a href="https://moleculer.services/docs/0.13/actions.html#Syntax">See more here</a> </p>
+</script>
+
+<script type="text/javascript">
+    /*Call DAQ_AI_U*/
+RED.nodes.registerType('moleculer-DAQ_AI_U', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_AI_U",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        pv:          {value: "", required: true},
+        stack:          {value: "", required: true},   /*it turns the data as persistent - eviana*/
+     
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_AI_U";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+    },
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_AI_U">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>   
+    
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>   
+    
+    <div class="form-row">
+        <label for="node-input-pv"><i class="fa fa-tag"></i> Select channel</label>
+        <select id="node-input-pv">
+            <option value="channel_1">channel 1</option>
+            <option value="channel_2">channel 2</option>
+            <option value="channel_3">channel 3</option>
+            <option value="channel_4">channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p>This node reads the analog voltage inputs  present in the pilot plant</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>channel 1</b> output 1 </li>
+        <li><b>channel 2</b> output 2 </li>
+        <li><b>channel 3</b> output 3 </li>
+        <li><b>channel 4</b> output 4</li>
+    </ul>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-DAQ_AI_U">
+    <p>Moleculer Call</p>
+    <h3>Details</h3>
+    <p>Broker: Name of Broker</p>
+    <p>Action: Name of Action. Overridden by msg.action. </p>
+    <p>Options: JSON options. <a href="https://moleculer.services/docs/0.13/actions.html#Syntax">See more here</a> </p>
+</script>
+
+<script type="text/javascript">
+    /*Call DAQ_DI_OPTO*/
+RED.nodes.registerType('moleculer-DAQ_DI_OPTO', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_DI_OPTO",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        pv:          {value: "", required: true},
+        stack:          {value: "", required: true},   /*it turns the data as persistent - eviana*/
+     
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_DI_OPTO";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+    },
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_DI_OPTO">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>    
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-pv"><i class="fa fa-tag"></i> Select channel</label>
+        <select id="node-input-pv">
+            <option value="channel_1">channel 1</option>
+            <option value="channel_2">channel 2</option>
+            <option value="channel_3">channel 3</option>
+            <option value="channel_4">channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p>This node reads dry opto status present in the pilot plant</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>channel 1</b> output 1 </li>
+        <li><b>channel 2</b> output 2 </li>
+        <li><b>channel 3</b> output 3 </li>
+        <li><b>channel 4</b> output 4</li>
+    </ul>
+</script>
+
+<script type="text/javascript">
+    /*Call DAQ_AO_I_RD*/
+RED.nodes.registerType('moleculer-DAQ_AO_I_RD', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_AO_I_RD",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        pv:          {value: "", required: true},   /*it turns the data as persistent - eviana*/
+        stack:          {value: "", required: true},
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_AO_I_RD";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+    },
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_AO_I_RD">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>   
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>    
+    <div class="form-row">
+        <label for="node-input-pv"><i class="fa fa-tag"></i> Select channel</label>
+        <select id="node-input-pv">
+            <option value="channel_1">channel 1</option>
+            <option value="channel_2">channel 2</option>
+            <option value="channel_3">channel 3</option>
+            <option value="channel_4">channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p>This node reads the analog current outputs present in the pilot plant</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>channel 1</b> output 1 </li>
+        <li><b>channel 2</b> output 2 </li>
+        <li><b>channel 3</b> output 3 </li>
+        <li><b>channel 4</b> output 4</li>
+    </ul>
+</script>
+
+<script type="text/javascript">
+    /*Call DAQ_AO_U_RD*/
+RED.nodes.registerType('moleculer-DAQ_AO_U_RD', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_AO_U_RD",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        pv:          {value: "", required: true},
+        stack:          {value: "", required: true},   /*it turns the data as persistent - eviana*/
+     
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_AO_U_RD";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+    },
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_AO_U_RD">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>     
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>  
+    <div class="form-row">
+        <label for="node-input-pv"><i class="fa fa-tag"></i> Select channel</label>
+        <select id="node-input-pv">
+            <option value="channel_1">channel 1</option>
+            <option value="channel_2">channel 2</option>
+            <option value="channel_3">channel 3</option>
+            <option value="channel_4">channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p>This node reads the analog voltage outputs present in the pilot plant</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>channel 1</b> output 1 </li>
+        <li><b>channel 2</b> output 2 </li>
+        <li><b>channel 3</b> output 3 </li>
+        <li><b>channel 4</b> output 4</li>
+    </ul>
+</script>
+
+<script type="text/javascript">
+    /*Call DAQ_AO_OD_RD*/
+RED.nodes.registerType('moleculer-DAQ_AO_OD_RD', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_AO_OD_RD",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        pv:          {value: "", required: true},
+        stack:          {value: "", required: true},   /*it turns the data as persistent - eviana*/
+     
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_AO_OD_RD";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+    },
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_AO_OD_RD">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>     
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>  
+    <div class="form-row">
+        <label for="node-input-pv"><i class="fa fa-tag"></i> Select channel</label>
+        <select id="node-input-pv">
+            <option value="channel_1">channel 1</option>
+            <option value="channel_2">channel 2</option>
+            <option value="channel_3">channel 3</option>
+            <option value="channel_4">channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p>This node reads theopen-drain Output PWM value present in the pilot plant</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>channel 1</b> output 1 </li>
+        <li><b>channel 2</b> output 2 </li>
+        <li><b>channel 3</b> output 3 </li>
+        <li><b>channel 4</b> output 4</li>
+    </ul>
+</script>
+
+<script type="text/javascript">
+    /*DAQ_AO_U_WT*/
+    RED.nodes.registerType('moleculer-DAQ_AO_U_WT', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_AO_U_WT",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        out:         {value: "", required: true},
+        stack:          {value: "", required: true},
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_AO_U_WT";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+        },
+    /*===  Define the data in type  ===*/
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_AO_U_WT">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>   
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>    
+    <div class="form-row">
+        <label for="node-input-out"><i class="fa fa-tag"></i> Select channel </label>
+        <select id="node-input-out">
+            <option value="Channel_1">Channel 1</option>
+            <option value="Channel_2">Channel 2</option>
+            <option value="Channel_3">Channel 3 </option>
+            <option value="Channel_4">Channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p> This node allows you to Write 0-10V output voltage value (V) present on the pilot plant, ranging from 0% to 100%.</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+        <li><b>msg.mv</b> msg.mv is the value that will be sent to the pump</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>Channel 1:</b> PZ111 Pump 1</li>
+        <li><b>Channel 2:</b> UZ112 Pump 2</li>
+        <li><b>Channel 3:</b> Electro valve</li>
+        <li><b>Channel 4:</b> Remnant</li>
+    </ul>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-DAQ_AO_U_WT">
+    <p>Moleculer Call</p>
+    <h3>Details</h3>
+    <p>Broker: Name of Broker</p>
+    <p>Action: Name of Action. Overridden by msg.action. </p>
+    <p>Options: JSON options. <a href="https://moleculer.services/docs/0.13/actions.html#Syntax">See more here</a> </p>
+</script>
+
+<script type="text/javascript">
+    /*DAQ_AO_I_WT*/
+    RED.nodes.registerType('moleculer-DAQ_AO_I_WT', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_AO_I_WT",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        out:         {value: "", required: true},
+        stack:          {value: "", required: true},
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_AO_I_WT";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+        },
+    /*===  Define the data in type  ===*/
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_AO_I_WT">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>    
+    
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-out"><i class="fa fa-tag"></i> Select channel </label>
+        <select id="node-input-out">
+            <option value="channel_1">channel 1</option>
+            <option value="channel_2">channel 2</option>
+            <option value="channel_3">channel 3</option>
+            <option value="channel_4">channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p> This node allows you to Write 4-20mA output current value (mA) present on the pilot plant, ranging from 0% to 100%.</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+        <li><b>msg.mv</b> msg.mv is the value that will be sent to the pump</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>Channel 1:</b> Out 1</li>
+        <li><b>Channel 2:</b> Out 2</li>
+        <li><b>Channel 3:</b> Out 3</li>
+        <li><b>Channel 4:</b> Out 4</li>
+    </ul>
+</script>
+
+<script type="text/javascript">
+    /*DAQ_AO_OD_WT*/
+    RED.nodes.registerType('moleculer-DAQ_AO_OD_WT', {
+    category: 'Pilot Plant',
+    outputs: 1,
+    inputs: 1,
+    color: "#fffaaa",
+    icon: "moleculer_big.png",
+    paletteLabel: "DAQ_AO_OD_WT",
+    defaults: {
+        broker: {
+            value: "",
+            type: "moleculer-config"
+        },
+        name:  { value: "" },
+        topic: { value: "" },
+        options: {
+            value: "{}",
+            validate: RED.validators.typedInput("optionsType"),
+            required: false
+        },
+                       
+        ident:       {value: 0 , required: true}, 
+        out:         {value: "", required: true},
+        stack:          {value: "", required: true},
+    },
+    label: function () {
+        return this.name || this.topic || "DAQ_AO_OD_WT";
+    },
+    /*===  Define the data in type  ===*/
+    oneditprepare: function () {
+        $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+        },
+    /*===  Define the data in type  ===*/
+});
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-DAQ_AO_OD_WT">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>    
+    
+    <div class="form-row">
+        <label for="node-input-stack"><i class="fa fa-tag"></i> Select stack</Select></label>
+        <select id="node-input-stack">
+            <option value="0">Stack 0</option>
+            <option value="1">Stack 1</option>
+            <option value="2">Stack 2</option>
+            <option value="3">Stack 3</option>
+            <option value="4">Stack 4</option>
+            <option value="5">Stack 5</option>
+            <option value="6">Stack 6</option>
+            <option value="7">Stack 7</option>
+        </select>
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-out"><i class="fa fa-tag"></i> Select channel </label>
+        <select id="node-input-out">
+            <option value="channel_1">channel 1</option>
+            <option value="channel_2">channel 2</option>
+            <option value="channel_3">channel 3</option>
+            <option value="channel_4">channel 4</option>
+        </select>
+    </div>
+    <p><b>Settings</b></p>
+    <p> This node allows you to Write open-drain output PWM value present on the pilot plant, ranging from 0% to 100%.</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+        <li><b>msg.mv</b> msg.mv is the value that will be sent to the pump</li>
+    </ul>
+    <p>The "Select stack" field allows you to select which level of the megaind card will be used</p>
+    <p>The "Select channel" field allows you to select from the following options:</p>
+    <ul>
+        <li><b>Channel 1:</b> Out 1</li>
+        <li><b>Channel 2:</b> Out 2</li>
+        <li><b>Channel 3:</b> Out 3</li>
+        <li><b>Channel 4:</b> Out 4</li>
+    </ul>
+</script>
+
+<script type="text/javascript">
+
+    //moleculer-PID4 //
+    RED.nodes.registerType('moleculer-PID4', {
+        category: 'Pilot Plant',
+        outputs: 2,
+        inputs: 1,
+        color: "#fffaaa",
+        icon: "moleculer_big.png",
+        paletteLabel: "PID4.0",
+        defaults: {
+            broker: {
+                value: "",
+                type: "moleculer-config"
+            },
+            name:  { value: "" },
+            topic: { value: "" },
+            options: {
+                value: "{}",
+                validate: RED.validators.typedInput("optionsType"),
+                required: false
+            },
+                           
+            spdyn: {
+                value: "{}",
+                validate: RED.validators.typedInput("spdynType"),
+                required: true
+            },   
+                
+            ident:       {value: 0 , required: true},
+            pv:          {value: "", required: false},   /*it turns the data as persistent - eviana*/
+            setpoint:    {value: "", required: false},   /*it turns the data as persistent - eviana*/
+        },
+
+        label: function () {
+            return this.name || this.topic || "PID4";
+        },
+        /*===  Define the data in type  ===*/
+        oneditprepare: function () {
+            $("#node-input-options").typedInput({default: 'json', typeField: $("#node-input-optionsType"), types: ['flow', 'global', 'json', 'env'] });
+            $("#node-input-setpoint").typedInput({ default: 'global', typeField: $("#node-input-setpointType"), types: ['flow', 'msg', 'global', 'json', 'env'] });
+            $("#node-input-spdyn").typedInput({ default: 'json', typeField: $("#node-input-spdynType"), types: ['flow', 'msg', 'global', 'json', 'env'] });
+        },
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="moleculer-PID4">
+    <div class="form-row">
+        <label for="node-input-ident"><i class="icon-tag"></i> Identifier</label>
+        <input type="text" id="node-input-ident" placeholder="ident">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div> 
+    
+    <p><b>Settings</b></p>
+    <p>The PID4 node is responsible for controlling the loops present in the pilot plant</p>
+    <p>For the node to function, the following input information must be provide:</p>
+    <ul>
+        <li><b>msg.enable</b> enable with a value of 1 enables the node to operate and enable with a value of 0 disables the node</li>
+        <li><b>msg.setpoint</b> The desired setpoint value must be provide</li>
+        <li><b>msg.pv</b> msg.pv is the value of the sensor available for monitoring the desired mesh</li>
+        <li><b>msg.kp</b> msg.kp is the value of proportional Constant on yur Pid</li>
+        <li><b>msg.ti</b> msg.ti is the value of integrative on your Pid</li>
+        <li><b>msg.td</b> msg.td is the value of derivative on your Pid</li>
+    </ul>
+</script>
+
+<script type="text/javascript">
+    /*moleculer-request-action*/
+    RED.nodes.registerType('moleculer-request-action', {
+        category: 'Moleculer',
+        outputs: 1,
+        inputs: 0,
+        color: "#ffffff",
+        icon: "moleculer_big.png",
+        paletteLabel: "request",
+        defaults: {
+            broker: {
+                value: "",
+                type: "moleculer-config"
+            },
+            service: {
+                value: "",
+                type: "moleculer-service-config"
+            },
+            name: {
+                value: ""
+            },
+            topic: {
+                value: "",
+                required: true
+            }
+        },
+        label: function () {
+            return this.name || this.topic || "request";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-request-action">
+    <div class="form-row">
+        <label for="node-input-broker"><i class="fa fa-globe"></i> Broker</label>
+        <input type="text" id="node-input-broker" placeholder="Broker">
+    </div>
+    <div class="form-row">
+        <label for="node-input-service"><i class="fa fa-globe"></i> Service</label>
+        <input type="text" id="node-input-service" placeholder="Service">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="icon-tasks"></i> Action</label>
+        <input type="text" id="node-input-topic" placeholder="Action">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-request-action">
+    <p>Moleculer Request</p>
+    <h3>Details</h3>
+    <p>Broker: Name of Broker</p>
+    <p>Service: Name of Service</p>
+    <p>Name: Name of Node. </p>
+    <p>Action: Name of Action. Overridden by msg.action. </p>
+</script>
+
+
+
+<script type="text/javascript">
+    /*moleculer-response-action*/
+    RED.nodes.registerType('moleculer-response-action', {
+        category: 'Moleculer',
+        outputs: 0,
+        inputs: 1,
+        color: "#ffffff",
+        icon: "moleculer_big.png",
+        paletteLabel: "response",
+        defaults: {
+            name: {
+                value: ""
+            }
+        },
+        label: function () {
+            return this.name || "response";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="moleculer-response-action">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="moleculer-response-action">
+    <p>Moleculer Response</p>
+    <h3>Details</h3>
+    <p>Name: Name of Node</p>
+    <p>This node send response from the service request.</p>
+</script>
