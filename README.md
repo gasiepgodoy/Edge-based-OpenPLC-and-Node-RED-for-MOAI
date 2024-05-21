@@ -4,7 +4,7 @@ These contents are the backup files about the experiments development for Eduard
 
 ![My Image](src/docs/Unesp-logo.png)
 
-Libraries created for Open PLC and Node-REd were:
+Libraries created for Open PLC and Node-RED were:
       
 DAQ_AO_U_WT,  
 DAQ_AO_U_RD,   
