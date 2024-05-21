@@ -22,7 +22,7 @@ Node Red client for Moleculer with suported lybraries developed for Pilot Plant 
 
 # Install Instructions
 
-![My Image](src/docs/diagrama_Node-REd-overview.png)
+![My Image](src/docs/Node-RED-overview.png)
 
 On ~/.node-red folder you must type:
 
