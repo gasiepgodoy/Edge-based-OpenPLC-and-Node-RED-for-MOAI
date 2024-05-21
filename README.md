@@ -17,4 +17,4 @@ DAQ_AO_OD_RD,
 DAQ_DI_OPTO  
 PID 4.0.   
 
-Advisor. Prof. Dr. Eduardo Paciência Godoy.
+Advisor. Prof. Dr. Eduardo Paciência Godoy. (Unesp)
