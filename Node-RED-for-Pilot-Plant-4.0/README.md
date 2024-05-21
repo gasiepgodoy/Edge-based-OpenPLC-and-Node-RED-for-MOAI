@@ -30,5 +30,5 @@ and to activate transporter config if necessary!
 
 ```npm install ioredis``` or ```npm install nats```   
 
-Please test and provide feedback to: eduardo.viana@unesp.br   
+Please test and provide feedback to: eduardo.viana@unesp.br  
 
