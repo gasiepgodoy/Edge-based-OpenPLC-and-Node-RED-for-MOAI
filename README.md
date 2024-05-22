@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-This contents refers to disertation: 
+This contents refers to disertation: <br>
    <b>
    ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.  
    </b>
