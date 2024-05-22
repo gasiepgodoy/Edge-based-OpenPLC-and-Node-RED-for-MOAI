@@ -8,8 +8,9 @@
  <img src="src/docs/Unesp-logo.png" />
 </p>
 
-Referente a dissertação: ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.
-
+Refers to disetation: ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.
+Student: Eduardo Amaro Viana   
+   
 Repository containing Node-RED flow and Dashboards/Gauges for Pilot Plant process control.   
 These contents are the backup files about the experiments development for Eduardo Amaro Viana MSc. Course at Unesp-Sorocaba.   
 The atached xls file contains all tags and features about the created blocks for both systems OpenPLC & Node-RED.   
