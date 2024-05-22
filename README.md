@@ -8,7 +8,7 @@
  <img src="src/docs/Unesp-logo.png" />
 </p>
 
-Refers to disetation: ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.
+Refers to disertation: ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.
 Student: Eduardo Amaro Viana   
    
 Repository containing Node-RED flow and Dashboards/Gauges for Pilot Plant process control.   
