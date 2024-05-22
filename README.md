@@ -17,7 +17,7 @@ This contents refers to disertation: <br>
  
 Student: Eduardo Amaro Viana (eduardo.viana@unesp.br)  
 ### Introduction 
-The contents hereby are all functional and tested at Unesp-Sorocaba laboratories, they are related the Microservices oriented architectures turned to industrial automation and process control.
+The contents hereby are all functional and tested at Unesp-Sorocaba laboratories, they are related to Microservices Oriented Architectures (MOA) turned to industrial automation and process control.
 
 Repository containing:  
 - Node-RED & Dashboards/Gauges Library [Node-RED-for-Pilot-Plant-4.0]
