@@ -22,6 +22,7 @@ Repository containing:
 - Process control loops [Node_RED-Pilot-Plant-Flow]
 - OpenPLC blocks Library [Moleculer-Framework-PSM-Blocks]
 - OpenPLC application containing a control loop [OpenPLC-Sample-Loop]
+- Unseful docs&files to suport installation [Further-documents]
   
 The atached <b>Node-Red & OpenPLC [tags definition] r00.xls</b> file contains tag definitions and features about the created blocks for both systems OpenPLC & Node-RED.   
 
