@@ -18,7 +18,7 @@ This contents refers to disertation: <br>
 Student: Eduardo Amaro Viana (eduardo.viana@unesp.br)  
 ### Introduction 
 The contents hereby are all functional and tested at Unesp-Sorocaba laboratories, they are related the Microservices oriented architectures turned to industrial automation and process control.
-  
+
 Repository containing:  
 - Node-RED & Dashboards/Gauges Library [Node-RED-for-Pilot-Plant-4.0]
 - Process control loops [Node_RED-Pilot-Plant-Flow]
@@ -53,3 +53,4 @@ To know a little more:
 - https://www.mdpi.com/2673-4117/4/2/69  
 - https://ieeexplore.ieee.org/document/9480146  
 - https://nodered.org/docs/creating-nodes/first-node  
+- https://www.youtube.com/@engenheiroseletronicos3351    
