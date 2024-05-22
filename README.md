@@ -8,7 +8,13 @@
  <img src="src/docs/Unesp-logo.png" />
 </p>
 
-Refers to disertation: ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.  
+<p align="center">
+This contents refers to disertation: 
+   <b>
+   ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.  
+   </b>
+</p>
+ 
 Student: Eduardo Amaro Viana   
 ### Introduction   
 Repository containing:  
