@@ -7,16 +7,16 @@ The node-red-contrib-pilot-plant-control is the set of files necessary to implem
 This activate the microsservices and request reading & control from/to Pilot Plant 4.0 variables.   
 
 This is a set of microservice blocks named:      
-DAQ_AO_U_WT,  
-DAQ_AO_U_RD,   
-DAQ_AI_U,   
-DAQ_AO_i_WT,   
-DAQ_AO_I_RD,   
-DAQ_AI_I,   
-DAQ_AO_OD_WT,   
-DAQ_AO_OD_RD,   
-DAQ_DI_OPTO  
-PID 4.0.  
+- DAQ_AO_U_WT
+- DAQ_AO_U_RD  
+- DAQ_AI_U 
+- DAQ_AO_i_WT   
+- DAQ_AO_I_RD   
+- DAQ_AI_I  
+- DAQ_AO_OD_WT  
+- DAQ_AO_OD_RD   
+- DAQ_DI_OPTO  
+- PID 4.0.   
 
 # node-red-contrib-pilot-plant-control 
 
