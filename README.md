@@ -15,7 +15,7 @@ This contents refers to disertation: <br>
    </b>
 </p>
  
-Student: Eduardo Amaro Viana   
+Student: Eduardo Amaro Viana (eduardo.viana@unesp.br)  
 ### Introduction   
 Repository containing:  
 - Node-RED & Dashboards/Gauges Library [Node-RED-for-Pilot-Plant-4.0]
