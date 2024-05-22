@@ -3,8 +3,10 @@ Repository containing Node-RED flow and Dashboards/Gauges for Pilot Plant proces
 These contents are the backup files about the experiments development for Eduardo Amaro Viana MSc. Course at Unesp-Sorocaba.   
 The atached xml file contains all tags and features about the created blocks for both systems OpenPLC & Node-RED.   
 
-![My Image](src/docs/Unesp-logo.png)
-
+![My Image](src/docs/Unesp-logo.png)   
+![My Image](src/docs/Node-RED-logo.png)   
+![My Image](src/docs/OpenPLC-logo.png)   
+   
 Libraries created for Open PLC and Node-RED were:
       
 DAQ_AO_U_WT,  
