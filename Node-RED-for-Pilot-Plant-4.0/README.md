@@ -1,4 +1,7 @@
-# Node-RED-for-Pilot-Plant-4.0 library   
+# Node-RED-for-Pilot-Plant-4.0 library  
+<p align="center">
+ <img src="src/docs/Node-RED-overview.png" />
+</p> 
 Unesp Pilot Plant 4.0 Node-red files for process control library.   
 The node-red-contrib-pilot-plant-control is the set of files necessary to implement the Pilot Plant 4.0 library for node-red.   
 This activate the microsservices and request reading & control from/to Pilot Plant 4.0 variables.   
@@ -20,8 +23,6 @@ PID 4.0.
 Node Red client for Moleculer with suported lybraries developed for Pilot Plant 4.0 control.   
 
 # Install Instructions
-
-![My Image](src/docs/Node-RED-overview.png)
 
 On ~/.node-red folder you must type:
 
