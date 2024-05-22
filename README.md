@@ -1,6 +1,6 @@
 <p align="center">
    <b>
-  1.0 UNESP – Instituto de Ciência e Tecnologia de Sorocaba <br> Edge-based-OpenPLC-and-Node-RED-for-MOAI 
+   UNESP – Instituto de Ciência e Tecnologia de Sorocaba <br> Edge-based-OpenPLC-and-Node-RED-for-MOAI 
    </b>
 </p>
 
