@@ -12,10 +12,12 @@ Refers to disertation: ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVI
 Student: Eduardo Amaro Viana   
 ### Introduction   
 Repository containing:  
-- Node-RED flow & Dashboards/Gauges
-- OpenPLC libraries
+- Node-RED & Dashboards/Gauges [Node-RED-for-Pilot-Plant-4.0]
+- Process control loops [Node_RED-Pilot-Plant-Flow]
+- OpenPLC blocks [Moleculer-Framework-PSM-Blocks]
+- OpenPLC application containing a control loop [OpenPLC-Sample-Loop]
   
-All above are libraries for Pilot Plant process control.
+Both above are libraries for Pilot Plant process control.
 The atached xls file contains all tags and features about the created blocks for both systems OpenPLC & Node-RED.   
 
 <p align="center">
