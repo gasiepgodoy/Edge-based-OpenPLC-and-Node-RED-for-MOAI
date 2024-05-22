@@ -49,8 +49,8 @@ Libraries created for Open PLC and Node-RED were:
 Advisor: Prof. Dr. Eduardo Paciência Godoy. (Unesp)
 
 To know a little more:  
-- [Planta Piloto 4.0]https://www.sba.org.br/open_journal_systems/index.php/cba/article/view/1741
-- [Microservice-Oriented Architecture for I4.0]https://www.mdpi.com/2673-4117/4/2/69  
-- [Industrial Automation as a Service]https://ieeexplore.ieee.org/document/9480146  
-- [Node-RED - Creating your first node]https://nodered.org/docs/creating-nodes/first-node  
-- [Youtube tutorials]https://www.youtube.com/@engenheiroseletronicos3351    
+- [Planta Piloto 4.0](https://www.sba.org.br/open_journal_systems/index.php/cba/article/view/1741)  
+- [Microservice-Oriented Architecture for I4.0](https://www.mdpi.com/2673-4117/4/2/69)    
+- [Industrial Automation as a Service](https://ieeexplore.ieee.org/document/9480146)  
+- [Node-RED - Creating your first node](https://nodered.org/docs/creating-nodes/first-node)    
+- [Youtube tutorials](https://www.youtube.com/@engenheiroseletronicos3351)     
