@@ -1,4 +1,12 @@
-# Moleculer_Framework_PSM_Blocks
+
+
+<p align="center">
+   <b>
+   Moleculer_Framework_PSM_Blocks
+   </b>
+   <img src="src/docs/OpenPLC-editor.png" />
+</p>
+
 Moleculer_Framework_PSM_Blocks for OpenPLC.    
 This is the library set of blocks which allows to create the following blocks on openPLC:  
 ![My Image](src/docs/PSM-Blocks.png)
