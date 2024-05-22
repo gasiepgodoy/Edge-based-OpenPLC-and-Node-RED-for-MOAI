@@ -44,7 +44,7 @@ Libraries created for Open PLC and Node-RED were:
 - DAQ_AO_OD_WT  
 - DAQ_AO_OD_RD   
 - DAQ_DI_OPTO  
-- PID 4.0.   
+- PID 4.0    
 
 Advisor: Prof. Dr. Eduardo Paciência Godoy. (Unesp)
 
