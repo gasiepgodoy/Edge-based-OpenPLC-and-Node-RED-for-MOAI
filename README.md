@@ -3,11 +3,12 @@
    UNESP – Instituto de Ciência e Tecnologia de Sorocaba <br> Edge-based-OpenPLC-and-Node-RED-for-MOAI 
    </b>
 </p>
-Referente a dissertação: ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.
 
 <p align="center">
  <img src="src/docs/Unesp-logo.png" />
 </p>
+
+Referente a dissertação: ABORDAGENS PARA CONTROLE E AUTOMAÇÃO USANDO MICROSSERVIÇOS E COMPUTAÇÃO DE BORDA NA INDÚSTRIA 4.0.
 
 Repository containing Node-RED flow and Dashboards/Gauges for Pilot Plant process control.   
 These contents are the backup files about the experiments development for Eduardo Amaro Viana MSc. Course at Unesp-Sorocaba.   
