@@ -1,5 +1,5 @@
 # Edge-based-OpenPLC-and-Node-RED-for-MOAI
-![My Image](src/docs/Unesp-logo.png) 
+![My Image](src/docs/Unesp-logo.png)   
 Repository containing Node-RED flow and Dashboards/Gauges for Pilot Plant process control.   
 These contents are the backup files about the experiments development for Eduardo Amaro Viana MSc. Course at Unesp-Sorocaba.   
 The atached xml file contains all tags and features about the created blocks for both systems OpenPLC & Node-RED.   
