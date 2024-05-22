@@ -23,7 +23,7 @@ Repository containing:
 - OpenPLC blocks Library [Moleculer-Framework-PSM-Blocks]
 - OpenPLC application containing a control loop [OpenPLC-Sample-Loop]
   
-The atached <b>Node-Red & OpenPLC [tags definition] r00.xls</b> file contains tags definition and features about the created blocks for both systems OpenPLC & Node-RED.   
+The atached <b>Node-Red & OpenPLC [tags definition] r00.xls</b> file contains tag definitions and features about the created blocks for both systems OpenPLC & Node-RED.   
 
 <p align="center">
  <img src="src/docs/Node-RED-logo.png" />
