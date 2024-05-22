@@ -50,3 +50,4 @@ To know a little more:
 - https://www.sba.org.br/open_journal_systems/index.php/cba/article/view/1741
 - https://www.mdpi.com/2673-4117/4/2/69  
 - https://ieeexplore.ieee.org/document/9480146  
+- https://nodered.org/docs/creating-nodes/first-node  
