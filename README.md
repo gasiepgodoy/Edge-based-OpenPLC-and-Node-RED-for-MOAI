@@ -45,3 +45,5 @@ Libraries created for Open PLC and Node-RED were:
 - PID 4.0.   
 
 Advisor: Prof. Dr. Eduardo Paciência Godoy. (Unesp)
+
+To know a little more: https://www.sba.org.br/open_journal_systems/index.php/cba/article/view/1741  
