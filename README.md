@@ -20,7 +20,7 @@ The atached xls file contains all tags and features about the created blocks for
 </p>
   
 Libraries created for Open PLC and Node-RED were:
-      
+<ul>      
 DAQ_AO_U_WT,  
 DAQ_AO_U_RD,   
 DAQ_AI_U,   
@@ -31,5 +31,5 @@ DAQ_AO_OD_WT,
 DAQ_AO_OD_RD,   
 DAQ_DI_OPTO  
 PID 4.0.   
-
+</ul>   
 Advisor. Prof. Dr. Eduardo Paciência Godoy. (Unesp)
