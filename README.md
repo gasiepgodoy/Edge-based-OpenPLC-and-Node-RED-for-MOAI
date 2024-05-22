@@ -19,7 +19,7 @@ Student: Eduardo Amaro Viana (eduardo.viana@unesp.br)
 ## Introduction 
 The contents hereby are all functional and tested at Unesp-Sorocaba laboratories, they are related to Microservices Oriented Architectures (MOA) turned to industrial automation and process control.
 
-## contents for this repository    
+## Contents for this repository    
 - Node-RED & Dashboards/Gauges Library [Node-RED-for-Pilot-Plant-4.0]
 - Process control loops [Node_RED-Pilot-Plant-Flow]
 - OpenPLC blocks Library [Moleculer-Framework-PSM-Blocks]
