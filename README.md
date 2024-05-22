@@ -1,7 +1,8 @@
 # Edge-based-OpenPLC-and-Node-RED-for-MOAI
 
 <p align="center">
-![My Image](src/docs/Unesp-logo.png) 
+ <img src="src/docs/Unesp-logo.png" />
+
 </p>
 
 Repository containing Node-RED flow and Dashboards/Gauges for Pilot Plant process control.   
