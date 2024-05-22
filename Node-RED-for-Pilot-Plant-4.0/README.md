@@ -15,7 +15,8 @@ DAQ_AO_OD_RD,
 DAQ_DI_OPTO  
 PID 4.0.  
 
-# node-red-contrib-pilot-plant-control   
+# node-red-contrib-pilot-plant-control 
+
 Node Red client for Moleculer with suported lybraries developed for Pilot Plant 4.0 control.   
 
 # Install Instructions
@@ -31,4 +32,3 @@ and to activate transporter config if necessary!
 ```npm install ioredis``` or ```npm install nats```   
 
 Please test and provide feedback to: eduardo.viana@unesp.br  
-
