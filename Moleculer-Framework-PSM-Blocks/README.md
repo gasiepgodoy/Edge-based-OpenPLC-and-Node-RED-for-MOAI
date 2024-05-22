@@ -1,9 +1,6 @@
-
+# Moleculer_Framework_PSM_Blocks
 
 <p align="center">
-   <b>
-   Moleculer_Framework_PSM_Blocks
-   </b>
    <img src="src/docs/OpenPLC-editor.png" />
 </p>
 

@@ -74,6 +74,8 @@ __DECLARE_GLOBAL(INT,RES0,PID_OUT)
 BOOL MAIN;
 A_MAIN_ROUTINE RES0__INSTANCE00;
 #define INSTANCE00 RES0__INSTANCE00
+B_PID4_ROUTINE RES0__INSTANCE01;
+#define INSTANCE01 RES0__INSTANCE01
 
 void RES0_init__(void) {
   BOOL retain;
@@ -135,12 +137,16 @@ void RES0_init__(void) {
   __INIT_GLOBAL(INT,PID_OUT,__INITIAL_VALUE(0),retain)
   MAIN = __BOOL_LITERAL(FALSE);
   A_MAIN_ROUTINE_init__(&INSTANCE00,retain);
+  B_PID4_ROUTINE_init__(&INSTANCE01,retain);
 }
 
 void RES0_run__(unsigned long tick) {
   MAIN = !(tick % 1);
   if (MAIN) {
     A_MAIN_ROUTINE_body__(&INSTANCE00);
+  }
+  if (MAIN) {
+    B_PID4_ROUTINE_body__(&INSTANCE01);
   }
 }
 
