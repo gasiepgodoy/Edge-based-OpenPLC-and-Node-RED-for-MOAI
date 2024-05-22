@@ -24,12 +24,10 @@ Node Red client for Moleculer with suported lybraries developed for Pilot Plant 
 
 # Install Instructions
 
-On ~/.node-red folder you must type:
+On ~/.node-red folder you must type:   
+```npm install node-red-contrib-pilot-plant-control```   
 
-```npm install node-red-contrib-pilot-plant-control```
-
-and to activate transporter config if necessary!   
-
-```npm install ioredis``` or ```npm install nats```   
+and to activate transporter config if necessary!  
+```npm install nats```   
 
 Please test and provide feedback to: eduardo.viana@unesp.br  
