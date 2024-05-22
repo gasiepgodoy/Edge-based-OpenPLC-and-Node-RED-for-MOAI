@@ -46,4 +46,6 @@ Libraries created for Open PLC and Node-RED were:
 
 Advisor: Prof. Dr. Eduardo Paciência Godoy. (Unesp)
 
-To know a little more: https://www.sba.org.br/open_journal_systems/index.php/cba/article/view/1741  
+To know a little more:  
+- https://www.sba.org.br/open_journal_systems/index.php/cba/article/view/1741
+- https://www.mdpi.com/2673-4117/4/2/69  
