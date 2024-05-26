@@ -1,0 +1,627 @@
+[
+    {
+        "id": "9ce25e2cfa5a72d0",
+        "type": "tab",
+        "label": "Home",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1aa79a3612739140",
+        "type": "group",
+        "z": "9ce25e2cfa5a72d0",
+        "name": "Reading tank pressure T02",
+        "style": {
+            "stroke": "#92d04f",
+            "fill": "#e3f3d3",
+            "label": true,
+            "color": "#92d04f"
+        },
+        "nodes": [
+            "03e708e20b8d7d53",
+            "f0a47a0648868078",
+            "9ae77178a6a9c779",
+            "f9c93c867806cfb1",
+            "a7c789c87b316dcb"
+        ],
+        "x": 14,
+        "y": 19,
+        "w": 812,
+        "h": 122
+    },
+    {
+        "id": "42e74617f30b33a4",
+        "type": "group",
+        "z": "9ce25e2cfa5a72d0",
+        "name": "Reading Line pressure",
+        "style": {
+            "stroke": "#0070c0",
+            "fill": "#bfdbef",
+            "label": true,
+            "color": "#0070c0"
+        },
+        "nodes": [
+            "c9b2206b47feb2e2",
+            "de7707b499b6f5a0",
+            "d9465a1e0d321e69",
+            "c5568b0cb710acc9",
+            "3306e7e56cd6e250"
+        ],
+        "x": 14,
+        "y": 159,
+        "w": 832,
+        "h": 122
+    },
+    {
+        "id": "e260bc37dee2b2b0",
+        "type": "group",
+        "z": "9ce25e2cfa5a72d0",
+        "name": "Reading tank T01 level",
+        "style": {
+            "stroke": "#ffff00",
+            "fill": "#ffffbf",
+            "label": true,
+            "color": "#ffC000"
+        },
+        "nodes": [
+            "aff0da57f4507862",
+            "b9b8e5fedee95e14",
+            "ec53380cdf9ae6e3",
+            "1dd30d69c4183feb",
+            "d93363526988143a"
+        ],
+        "x": 14,
+        "y": 299,
+        "w": 832,
+        "h": 122
+    },
+    {
+        "id": "dce702261e3416f5",
+        "type": "group",
+        "z": "9ce25e2cfa5a72d0",
+        "name": "Reading flow rate",
+        "style": {
+            "stroke": "#ff0000",
+            "fill": "#ffbfbf",
+            "label": true,
+            "color": "#ff0000"
+        },
+        "nodes": [
+            "64d35b47e4aeb877",
+            "7438e13c40df58fb",
+            "e2a6ada697b203e6",
+            "10e2ab428b018c45",
+            "6b13b1f6c8a33598"
+        ],
+        "x": 14,
+        "y": 439,
+        "w": 832,
+        "h": 122
+    },
+    {
+        "id": "03e708e20b8d7d53",
+        "type": "inject",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "1aa79a3612739140",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "a7c789c87b316dcb"
+            ]
+        ]
+    },
+    {
+        "id": "0cc62bd2e8072699",
+        "type": "comment",
+        "z": "9ce25e2cfa5a72d0",
+        "name": "GetInputCurrent",
+        "info": "Reading GetInputCurrent \nIt reads the four current input channels from 4mA to 20mA.\n\nVia Api:**http://192.168.1.201:3005/api/megaind-rpi.getOutputCurrent?**\n\nVia Transporter call daq.riin\nTransporter Nats: **{\"transporter\":\"nats://192.168.1.201:4222\"}**\n\nArray position:\n0 = sensor PIT129 tank pressure T02\n1 = sensor PIT118 line pressure\n2 = sensor LIT125 tank level T01\n3 = sensor FIT116 flow rate",
+        "x": 940,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "c9b2206b47feb2e2",
+        "type": "debug",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "42e74617f30b33a4",
+        "name": "PIT118",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "aff0da57f4507862",
+        "type": "debug",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "e260bc37dee2b2b0",
+        "name": "LIT 125",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "64d35b47e4aeb877",
+        "type": "debug",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "dce702261e3416f5",
+        "name": "FIT116",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "f0a47a0648868078",
+        "type": "ui_gauge",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "1aa79a3612739140",
+        "name": "",
+        "group": "94cd38ebf863b4fb",
+        "order": 1,
+        "width": 7,
+        "height": 7,
+        "gtype": "compass",
+        "title": "PIT129 ",
+        "label": "%",
+        "format": "{{payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b9b8e5fedee95e14",
+        "type": "ui_gauge",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "e260bc37dee2b2b0",
+        "name": "",
+        "group": "e501dc41ef0476e6",
+        "order": 1,
+        "width": 7,
+        "height": 7,
+        "gtype": "compass",
+        "title": "LIT 125",
+        "label": "%",
+        "format": "{{payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7438e13c40df58fb",
+        "type": "ui_gauge",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "dce702261e3416f5",
+        "name": "",
+        "group": "91e38bc7825fa3cd",
+        "order": 1,
+        "width": 7,
+        "height": 7,
+        "gtype": "compass",
+        "title": "FIT116",
+        "label": "%",
+        "format": "{{payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "de7707b499b6f5a0",
+        "type": "ui_gauge",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "42e74617f30b33a4",
+        "name": "",
+        "group": "124cbeb13f41a385",
+        "order": 1,
+        "width": 7,
+        "height": 7,
+        "gtype": "compass",
+        "title": "PIT118",
+        "label": "%",
+        "format": "{{payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 740,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d9465a1e0d321e69",
+        "type": "inject",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "42e74617f30b33a4",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.25",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "3306e7e56cd6e250"
+            ]
+        ]
+    },
+    {
+        "id": "ec53380cdf9ae6e3",
+        "type": "inject",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "e260bc37dee2b2b0",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "d93363526988143a"
+            ]
+        ]
+    },
+    {
+        "id": "e2a6ada697b203e6",
+        "type": "inject",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "dce702261e3416f5",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "6b13b1f6c8a33598"
+            ]
+        ]
+    },
+    {
+        "id": "9ae77178a6a9c779",
+        "type": "function",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "1aa79a3612739140",
+        "name": "Global PIT129",
+        "func": "global.set(\"PIT129\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "f9c93c867806cfb1",
+                "f0a47a0648868078"
+            ]
+        ]
+    },
+    {
+        "id": "c5568b0cb710acc9",
+        "type": "function",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "42e74617f30b33a4",
+        "name": "Global PIT118",
+        "func": "global.set(\"PIT118\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "c9b2206b47feb2e2",
+                "de7707b499b6f5a0"
+            ]
+        ]
+    },
+    {
+        "id": "1dd30d69c4183feb",
+        "type": "function",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "e260bc37dee2b2b0",
+        "name": "Global LIT125",
+        "func": "global.set(\"LIT125\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 360,
+        "wires": [
+            [
+                "aff0da57f4507862",
+                "b9b8e5fedee95e14"
+            ]
+        ]
+    },
+    {
+        "id": "10e2ab428b018c45",
+        "type": "function",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "dce702261e3416f5",
+        "name": "Global FIT116",
+        "func": "global.set(\"FIT116\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 500,
+        "wires": [
+            [
+                "64d35b47e4aeb877",
+                "7438e13c40df58fb"
+            ]
+        ]
+    },
+    {
+        "id": "f9c93c867806cfb1",
+        "type": "debug",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "1aa79a3612739140",
+        "name": "debug 27",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "a7c789c87b316dcb",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "1aa79a3612739140",
+        "broker": "63ebd62b2640f3f7",
+        "name": "PIT129",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "Channel_1",
+        "stack": "0",
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "9ae77178a6a9c779"
+            ]
+        ]
+    },
+    {
+        "id": "3306e7e56cd6e250",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "42e74617f30b33a4",
+        "broker": "63ebd62b2640f3f7",
+        "name": "PIT118",
+        "topic": "",
+        "options": "{}",
+        "ident": "1",
+        "pv": "Channel_2",
+        "stack": "0",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "c5568b0cb710acc9"
+            ]
+        ]
+    },
+    {
+        "id": "d93363526988143a",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "e260bc37dee2b2b0",
+        "broker": "63ebd62b2640f3f7",
+        "name": "LIT125",
+        "topic": "",
+        "options": "{}",
+        "ident": "2",
+        "pv": "Channel_3",
+        "stack": "0",
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "1dd30d69c4183feb"
+            ]
+        ]
+    },
+    {
+        "id": "6b13b1f6c8a33598",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "9ce25e2cfa5a72d0",
+        "g": "dce702261e3416f5",
+        "broker": "63ebd62b2640f3f7",
+        "name": "FIT116",
+        "topic": "",
+        "options": "{}",
+        "ident": "3",
+        "pv": "Channel_4",
+        "stack": "0",
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "10e2ab428b018c45"
+            ]
+        ]
+    },
+    {
+        "id": "94cd38ebf863b4fb",
+        "type": "ui_group",
+        "name": " Tank pressure R01",
+        "tab": "79a50bf451619962",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e501dc41ef0476e6",
+        "type": "ui_group",
+        "name": "Tank level T01",
+        "tab": "79a50bf451619962",
+        "order": 4,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "91e38bc7825fa3cd",
+        "type": "ui_group",
+        "name": "Flow rate",
+        "tab": "79a50bf451619962",
+        "order": 3,
+        "disp": true,
+        "width": 7,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "124cbeb13f41a385",
+        "type": "ui_group",
+        "name": "Line pressure",
+        "tab": "79a50bf451619962",
+        "order": 2,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "63ebd62b2640f3f7",
+        "type": "moleculer-config",
+        "name": "NATS_ext",
+        "options": "{\"transporter\":\"nats://192.168.1.201:4222\"}"
+    },
+    {
+        "id": "79a50bf451619962",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

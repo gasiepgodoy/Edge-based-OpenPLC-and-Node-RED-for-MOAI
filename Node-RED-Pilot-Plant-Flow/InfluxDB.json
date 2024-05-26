@@ -1,0 +1,621 @@
+[
+    {
+        "id": "02f5db7b860189f6",
+        "type": "tab",
+        "label": "InfluxDB",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b532db6271597d80",
+        "type": "group",
+        "z": "02f5db7b860189f6",
+        "name": "InfluxDB Pilot_Plant",
+        "style": {
+            "stroke": "#9363b7",
+            "fill": "#dbcbe7",
+            "label": true,
+            "color": "#6f2fa0"
+        },
+        "nodes": [
+            "d5f8af7318aa1b7c",
+            "1334404705b09748",
+            "60bbbe19f6a3744a",
+            "249e12eff4ba30ec",
+            "10ca28f9e88b6a81",
+            "20948d0a7cb13511",
+            "d00160bf42dc720a",
+            "80623cacfbbceeda",
+            "37f8c7d4c6c2d358",
+            "f9b80aaec8d375a3",
+            "bf386f84f5feacc1",
+            "7f5b7116bf509884",
+            "ff28f2f2a5a9b98b",
+            "b203d3bf2690cf80",
+            "c2447139552c2ed4",
+            "2790ca67da84498a",
+            "ee9692cb184c380c",
+            "d659f70e2ecf4051",
+            "ebfe616915afb4e1",
+            "02529ca171706c6e",
+            "1a445e963d8e4350",
+            "7a8e56a5eb05c357",
+            "f26f1dbfe93246da",
+            "c73bf5dd710a29ac",
+            "2d796011c9d3fcf7"
+        ],
+        "x": 14,
+        "y": 19,
+        "w": 1032,
+        "h": 362
+    },
+    {
+        "id": "d5f8af7318aa1b7c",
+        "type": "inject",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "1334404705b09748"
+            ]
+        ]
+    },
+    {
+        "id": "1334404705b09748",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "broker": "63ebd62b2640f3f7",
+        "name": "PIT129",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "Channel_1",
+        "stack": "0",
+        "x": 300,
+        "y": 60,
+        "wires": [
+            [
+                "249e12eff4ba30ec"
+            ]
+        ]
+    },
+    {
+        "id": "60bbbe19f6a3744a",
+        "type": "influxdb out",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "influxdb": "a83187311c548776",
+        "name": "",
+        "measurement": "Pilot_plant_data",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Pilot_Plant",
+        "bucket": "Sensor_data",
+        "x": 870,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "249e12eff4ba30ec",
+        "type": "function",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "Conversion InfluxDB",
+        "func": "msg.payload = [{\n\n    Valor: msg.payload\n\n},\n{\n    Variavel: \"PIT129\"\n}];\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 60,
+        "wires": [
+            [
+                "60bbbe19f6a3744a"
+            ]
+        ]
+    },
+    {
+        "id": "10ca28f9e88b6a81",
+        "type": "inject",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "7f5b7116bf509884"
+            ]
+        ]
+    },
+    {
+        "id": "20948d0a7cb13511",
+        "type": "inject",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "ff28f2f2a5a9b98b"
+            ]
+        ]
+    },
+    {
+        "id": "d00160bf42dc720a",
+        "type": "inject",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "b203d3bf2690cf80"
+            ]
+        ]
+    },
+    {
+        "id": "80623cacfbbceeda",
+        "type": "inject",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "d659f70e2ecf4051"
+            ]
+        ]
+    },
+    {
+        "id": "37f8c7d4c6c2d358",
+        "type": "inject",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "ebfe616915afb4e1"
+            ]
+        ]
+    },
+    {
+        "id": "f9b80aaec8d375a3",
+        "type": "inject",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "1a445e963d8e4350"
+            ]
+        ]
+    },
+    {
+        "id": "bf386f84f5feacc1",
+        "type": "inject",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "injetar",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "2d796011c9d3fcf7"
+            ]
+        ]
+    },
+    {
+        "id": "7f5b7116bf509884",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "broker": "63ebd62b2640f3f7",
+        "name": "PIT118",
+        "topic": "",
+        "options": "{}",
+        "ident": "1",
+        "pv": "Channel_2",
+        "stack": "0",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "c2447139552c2ed4"
+            ]
+        ]
+    },
+    {
+        "id": "ff28f2f2a5a9b98b",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "broker": "63ebd62b2640f3f7",
+        "name": "LIT125",
+        "topic": "",
+        "options": "{}",
+        "ident": "2",
+        "pv": "Channel_3",
+        "stack": "0",
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "2790ca67da84498a"
+            ]
+        ]
+    },
+    {
+        "id": "b203d3bf2690cf80",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "broker": "63ebd62b2640f3f7",
+        "name": "FIT116",
+        "topic": "",
+        "options": "{}",
+        "ident": "3",
+        "pv": "Channel_4",
+        "stack": "0",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "ee9692cb184c380c"
+            ]
+        ]
+    },
+    {
+        "id": "c2447139552c2ed4",
+        "type": "function",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "Conversion InfluxDB",
+        "func": "msg.payload = [{\n\n    Valor: msg.payload\n\n},\n{\n    Variavel: \"PIT118\"\n}];\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "60bbbe19f6a3744a"
+            ]
+        ]
+    },
+    {
+        "id": "2790ca67da84498a",
+        "type": "function",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "Conversion InfluxDB",
+        "func": "msg.payload = [{\n\n    Valor: msg.payload\n\n},\n{\n    Variavel: \"LIT125\"\n}];\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 140,
+        "wires": [
+            [
+                "60bbbe19f6a3744a"
+            ]
+        ]
+    },
+    {
+        "id": "ee9692cb184c380c",
+        "type": "function",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "Conversion InfluxDB",
+        "func": "msg.payload = [{\n\n    Valor: msg.payload\n\n},\n{\n    Variavel: \"FIT116\"\n}];\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 180,
+        "wires": [
+            [
+                "60bbbe19f6a3744a"
+            ]
+        ]
+    },
+    {
+        "id": "d659f70e2ecf4051",
+        "type": "moleculer-DAQ_AO_U_RD",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "broker": "63ebd62b2640f3f7",
+        "name": "Pump1",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_1",
+        "stack": "0",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "02529ca171706c6e"
+            ]
+        ]
+    },
+    {
+        "id": "ebfe616915afb4e1",
+        "type": "moleculer-DAQ_AO_U_RD",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "broker": "63ebd62b2640f3f7",
+        "name": "Pump2",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_2",
+        "stack": "0",
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "7a8e56a5eb05c357"
+            ]
+        ]
+    },
+    {
+        "id": "02529ca171706c6e",
+        "type": "function",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "Conversion InfluxDB",
+        "func": "msg.payload = [{\n\n    Valor: msg.payload\n\n},\n{\n    Variavel: \"Pump1\"\n}];\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "60bbbe19f6a3744a"
+            ]
+        ]
+    },
+    {
+        "id": "1a445e963d8e4350",
+        "type": "moleculer-DAQ_AO_U_RD",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "broker": "63ebd62b2640f3f7",
+        "name": "Electro valve",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_3",
+        "stack": "0",
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "f26f1dbfe93246da"
+            ]
+        ]
+    },
+    {
+        "id": "7a8e56a5eb05c357",
+        "type": "function",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "Conversion InfluxDB",
+        "func": "msg.payload = [{\n\n    Valor: msg.payload\n\n},\n{\n    Variavel: \"Pump2\"\n}];\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 260,
+        "wires": [
+            [
+                "60bbbe19f6a3744a"
+            ]
+        ]
+    },
+    {
+        "id": "f26f1dbfe93246da",
+        "type": "function",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "Conversion InfluxDB",
+        "func": "msg.payload = [{\n\n    Valor: msg.payload\n\n},\n{\n    Variavel: \"Electro valve\"\n}];\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 300,
+        "wires": [
+            [
+                "60bbbe19f6a3744a"
+            ]
+        ]
+    },
+    {
+        "id": "c73bf5dd710a29ac",
+        "type": "function",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "name": "Conversion InfluxDB",
+        "func": "msg.payload = [{\n\n    Valor: msg.payload\n\n},\n{\n    Variavel: \"Temperatura\"\n}];\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 340,
+        "wires": [
+            [
+                "60bbbe19f6a3744a"
+            ]
+        ]
+    },
+    {
+        "id": "2d796011c9d3fcf7",
+        "type": "moleculer-DAQ_AI_U",
+        "z": "02f5db7b860189f6",
+        "g": "b532db6271597d80",
+        "broker": "63ebd62b2640f3f7",
+        "name": "Temperatura",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_1",
+        "stack": "0",
+        "x": 310,
+        "y": 340,
+        "wires": [
+            [
+                "c73bf5dd710a29ac"
+            ]
+        ]
+    },
+    {
+        "id": "63ebd62b2640f3f7",
+        "type": "moleculer-config",
+        "name": "NATS_ext",
+        "options": "{\"transporter\":\"nats://192.168.1.201:4222\"}"
+    },
+    {
+        "id": "a83187311c548776",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "Sensor_data",
+        "name": "DB_pilot_plant",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    }
+]

@@ -1,0 +1,825 @@
+[
+    {
+        "id": "58f44066c4db29a2",
+        "type": "tab",
+        "label": "Teste de nodes criados",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "317de8e4868d033a",
+        "type": "group",
+        "z": "58f44066c4db29a2",
+        "name": "Reading Input",
+        "style": {
+            "stroke": "#ff0000",
+            "fill": "#ffbfbf",
+            "label": true,
+            "color": "#ff0000"
+        },
+        "nodes": [
+            "358796e94df32580",
+            "3fca2565cc860254",
+            "c91efd0b61605248",
+            "76975452a297d4db",
+            "18c9611e641c8b0c",
+            "3dd7cae5153aa739",
+            "0663918219373ac8",
+            "e124d9f9428c74ef",
+            "2a32ba1e2f19c493"
+        ],
+        "x": 14,
+        "y": 19,
+        "w": 632,
+        "h": 202
+    },
+    {
+        "id": "1203bf6fcb5525b0",
+        "type": "group",
+        "z": "58f44066c4db29a2",
+        "name": "Set OutPut",
+        "style": {
+            "stroke": "#ffff00",
+            "fill": "#ffffbf",
+            "label": true,
+            "color": "#ffC000"
+        },
+        "nodes": [
+            "5f0e5a20cdd4a8f4",
+            "9a3e09b8c3655bf7",
+            "f63cdce30a770f8e",
+            "84255527243cc7a7",
+            "792a3185ca3f412d",
+            "15310384b5224faa",
+            "bfc077c58635b4d9",
+            "32f4686259b5c5ca",
+            "9f8766569fdde968"
+        ],
+        "x": 14,
+        "y": 239,
+        "w": 632,
+        "h": 202
+    },
+    {
+        "id": "be473d6f86f8f61a",
+        "type": "group",
+        "z": "58f44066c4db29a2",
+        "name": "Reading OutPut",
+        "style": {
+            "stroke": "#92d04f",
+            "fill": "#e3f3d3",
+            "label": true,
+            "color": "#92d04f"
+        },
+        "nodes": [
+            "fb52fd37d9173d7f",
+            "227b966451fa4b01",
+            "5cfbeb41ce91e322",
+            "e51ac46300818285",
+            "41658f9b292ff741",
+            "b8056334af2e759c",
+            "daca420975a766d1",
+            "b22cefdfa81fd51c",
+            "04b03f49cbd7c057"
+        ],
+        "x": 654,
+        "y": 19,
+        "w": 632,
+        "h": 202
+    },
+    {
+        "id": "54e8e335bfbdd905",
+        "type": "group",
+        "z": "58f44066c4db29a2",
+        "name": "PID 4.0",
+        "style": {
+            "stroke": "#0070c0",
+            "fill": "#bfdbef",
+            "label": true,
+            "color": "#0070c0"
+        },
+        "nodes": [
+            "cf17ac967c531917",
+            "ebfeef4405ef0008",
+            "f6c42dd644723f49",
+            "51c6fac418c3bfdd"
+        ],
+        "x": 654,
+        "y": 239,
+        "w": 632,
+        "h": 122
+    },
+    {
+        "id": "358796e94df32580",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "name": "debug 21",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3fca2565cc860254",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "name": "getInputVoltage",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "0663918219373ac8"
+            ]
+        ]
+    },
+    {
+        "id": "cf17ac967c531917",
+        "type": "moleculer-PID4",
+        "z": "58f44066c4db29a2",
+        "g": "54e8e335bfbdd905",
+        "broker": "53d52b40311b0dfb",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "spdyn": "{}",
+        "ident": "4",
+        "setpoint": 50,
+        "loopControl": "control-mesh-31.pidplus",
+        "x": 950,
+        "y": 300,
+        "wires": [
+            [
+                "ebfeef4405ef0008"
+            ],
+            [
+                "f6c42dd644723f49"
+            ]
+        ]
+    },
+    {
+        "id": "ebfeef4405ef0008",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "54e8e335bfbdd905",
+        "name": "debug 23",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "mv",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f6c42dd644723f49",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "54e8e335bfbdd905",
+        "name": "debug 24",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5f0e5a20cdd4a8f4",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "name": "SetOutPutVoltage",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "mv",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 150,
+        "y": 280,
+        "wires": [
+            [
+                "bfc077c58635b4d9"
+            ]
+        ]
+    },
+    {
+        "id": "9a3e09b8c3655bf7",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "name": "debug 28",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c91efd0b61605248",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "name": "getInputCurrent",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "e124d9f9428c74ef"
+            ]
+        ]
+    },
+    {
+        "id": "76975452a297d4db",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "name": "debug 29",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f63cdce30a770f8e",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "name": "SetOutPutCurrent",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "mv",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "32f4686259b5c5ca"
+            ]
+        ]
+    },
+    {
+        "id": "84255527243cc7a7",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "name": "debug 30",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fb52fd37d9173d7f",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "name": "getOutPutCurrent",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 780,
+        "y": 60,
+        "wires": [
+            [
+                "b22cefdfa81fd51c"
+            ]
+        ]
+    },
+    {
+        "id": "227b966451fa4b01",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "5cfbeb41ce91e322",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "name": "getOutPutVoltage",
+        "props": [
+            {
+                "p": "enable",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 780,
+        "y": 120,
+        "wires": [
+            [
+                "daca420975a766d1"
+            ]
+        ]
+    },
+    {
+        "id": "e51ac46300818285",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "name": "debug 32",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "18c9611e641c8b0c",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "name": "debug 33",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3dd7cae5153aa739",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "name": "getInputOpto",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "2a32ba1e2f19c493"
+            ]
+        ]
+    },
+    {
+        "id": "792a3185ca3f412d",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "name": "SetOutPutOpenDrain",
+        "props": [
+            {
+                "p": "enable",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "p": "mv",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 160,
+        "y": 400,
+        "wires": [
+            [
+                "9f8766569fdde968"
+            ]
+        ]
+    },
+    {
+        "id": "15310384b5224faa",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "name": "debug 34",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "41658f9b292ff741",
+        "type": "debug",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b8056334af2e759c",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "name": "getOutputOpenDrain",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 790,
+        "y": 180,
+        "wires": [
+            [
+                "04b03f49cbd7c057"
+            ]
+        ]
+    },
+    {
+        "id": "bfc077c58635b4d9",
+        "type": "moleculer-DAQ_AO_U_WT",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": "8",
+        "out": "Channel_3",
+        "stack": "0",
+        "x": 370,
+        "y": 280,
+        "wires": [
+            [
+                "9a3e09b8c3655bf7"
+            ]
+        ]
+    },
+    {
+        "id": "daca420975a766d1",
+        "type": "moleculer-DAQ_AO_U_RD",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_1",
+        "stack": "0",
+        "x": 990,
+        "y": 120,
+        "wires": [
+            [
+                "e51ac46300818285"
+            ]
+        ]
+    },
+    {
+        "id": "b22cefdfa81fd51c",
+        "type": "moleculer-DAQ_AO_I_RD",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_3",
+        "stack": "0",
+        "x": 980,
+        "y": 60,
+        "wires": [
+            [
+                "227b966451fa4b01"
+            ]
+        ]
+    },
+    {
+        "id": "e124d9f9428c74ef",
+        "type": "moleculer-DAQ_AI_I",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "Channel_1",
+        "stack": "0",
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "76975452a297d4db"
+            ]
+        ]
+    },
+    {
+        "id": "0663918219373ac8",
+        "type": "moleculer-DAQ_AI_U",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_1",
+        "stack": "0",
+        "x": 330,
+        "y": 60,
+        "wires": [
+            [
+                "358796e94df32580"
+            ]
+        ]
+    },
+    {
+        "id": "2a32ba1e2f19c493",
+        "type": "moleculer-DAQ_DI_OPTO",
+        "z": "58f44066c4db29a2",
+        "g": "317de8e4868d033a",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_1",
+        "stack": "0",
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "18c9611e641c8b0c"
+            ]
+        ]
+    },
+    {
+        "id": "04b03f49cbd7c057",
+        "type": "moleculer-DAQ_AO_OD_RD",
+        "z": "58f44066c4db29a2",
+        "g": "be473d6f86f8f61a",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "pv": "channel_1",
+        "stack": "0",
+        "x": 990,
+        "y": 180,
+        "wires": [
+            [
+                "41658f9b292ff741"
+            ]
+        ]
+    },
+    {
+        "id": "32f4686259b5c5ca",
+        "type": "moleculer-DAQ_AO_I_WT",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "out": "channel_1",
+        "stack": "0",
+        "x": 360,
+        "y": 340,
+        "wires": [
+            [
+                "84255527243cc7a7"
+            ]
+        ]
+    },
+    {
+        "id": "9f8766569fdde968",
+        "type": "moleculer-DAQ_AO_OD_WT",
+        "z": "58f44066c4db29a2",
+        "g": "1203bf6fcb5525b0",
+        "broker": "63ebd62b2640f3f7",
+        "name": "",
+        "topic": "",
+        "options": "{}",
+        "ident": 0,
+        "out": "channel_3",
+        "stack": "0",
+        "x": 370,
+        "y": 400,
+        "wires": [
+            [
+                "15310384b5224faa"
+            ]
+        ]
+    },
+    {
+        "id": "51c6fac418c3bfdd",
+        "type": "inject",
+        "z": "58f44066c4db29a2",
+        "g": "54e8e335bfbdd905",
+        "name": "",
+        "props": [
+            {
+                "p": "enable",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "setpoint",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "pv",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "td",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "ti",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "p": "kp",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 750,
+        "y": 300,
+        "wires": [
+            [
+                "cf17ac967c531917"
+            ]
+        ]
+    },
+    {
+        "id": "53d52b40311b0dfb",
+        "type": "moleculer-config",
+        "name": "NATS_ext",
+        "options": "{\"transporter\":\"nats://192.168.1.201:4222\"}"
+    },
+    {
+        "id": "63ebd62b2640f3f7",
+        "type": "moleculer-config",
+        "name": "NATS_ext",
+        "options": "{\"transporter\":\"nats://192.168.1.201:4222\"}"
+    }
+]

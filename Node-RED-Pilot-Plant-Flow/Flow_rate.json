@@ -1,0 +1,1423 @@
+[
+    {
+        "id": "ac38cb94983d0eb8",
+        "type": "tab",
+        "label": "Flow rate control",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "dd4409398f1f0774",
+        "type": "group",
+        "z": "ac38cb94983d0eb8",
+        "name": "Enable",
+        "style": {
+            "stroke": "#6f2fa0",
+            "label": true,
+            "color": "#6f2fa0",
+            "fill": "#dbcbe7"
+        },
+        "nodes": [
+            "d78c5d6a493fe4be",
+            "80146d4370644dd4",
+            "b505175bbbfbfe84",
+            "bc4ee4c0f4e3e7ee",
+            "857ed0c2326fff8a",
+            "f990a852b477f7f0",
+            "7f42450e37d94cab",
+            "ba1b3a9485670bfe",
+            "7e2948f99b298252",
+            "d09248b1e9b1ec52",
+            "c8fe68f506c11690"
+        ],
+        "x": 34,
+        "y": 39,
+        "w": 692,
+        "h": 202
+    },
+    {
+        "id": "73ee18af5c1bf4eb",
+        "type": "group",
+        "z": "ac38cb94983d0eb8",
+        "name": "Control Loops",
+        "style": {
+            "stroke": "#ff0000",
+            "fill": "#ff7f7f",
+            "fill-opacity": "0.36",
+            "label": true,
+            "color": "#ff0000"
+        },
+        "nodes": [
+            "a5b1e37a7ec5cd3b",
+            "ca246f44b230227a",
+            "34fddc388fef54d6",
+            "e072665c22766896"
+        ],
+        "x": 34,
+        "y": 259,
+        "w": 692,
+        "h": 142
+    },
+    {
+        "id": "1eb1e7c78e7578db",
+        "type": "group",
+        "z": "ac38cb94983d0eb8",
+        "name": "Reading PID4 params",
+        "style": {
+            "stroke": "#001f60",
+            "fill": "#bfc7d7",
+            "label": true,
+            "color": "#001f60"
+        },
+        "nodes": [
+            "b4c9aa02b60591e6",
+            "99720bb9f8b0d32a",
+            "295e2a790b597726",
+            "749e42f5d8e2002f",
+            "582660ad796819c9",
+            "81f0838e29beeb1e",
+            "4cdc3660af00aa81",
+            "32e447140bcaf106",
+            "3f63f848c1ce2096",
+            "ceca18fa0506c219",
+            "ac93421fb2307efa",
+            "ff5b4f480fdaa3c2",
+            "b93b02676ac9149d",
+            "cbecf6d96c5860b6",
+            "4e901b4fa2797696"
+        ],
+        "x": 34,
+        "y": 419,
+        "w": 952,
+        "h": 362
+    },
+    {
+        "id": "b253d6814e713044",
+        "type": "group",
+        "z": "ac38cb94983d0eb8",
+        "name": "Setpoint generation",
+        "style": {
+            "label": true,
+            "color": "#0070c0",
+            "stroke": "#0070c0",
+            "fill": "#7fb7df",
+            "fill-opacity": "0.32"
+        },
+        "nodes": [
+            "51f1d3e368357b1c",
+            "52d7ff420ee3667b",
+            "b4f977b9eef2b7ba",
+            "092683835ca30e55",
+            "e60b39fd1f5031f1",
+            "04c4ee1364ea7655",
+            "46ceabb350113ccc",
+            "f03675743a929cd9",
+            "158d7f3a6d632ae6"
+        ],
+        "x": 734,
+        "y": 79,
+        "w": 992,
+        "h": 322
+    },
+    {
+        "id": "fbc3496b9b5d615d",
+        "type": "group",
+        "z": "ac38cb94983d0eb8",
+        "name": "Input Pid params",
+        "style": {
+            "stroke": "#ffff00",
+            "label": true,
+            "color": "#000000",
+            "fill": "#ffffbf"
+        },
+        "nodes": [
+            "01d30cb3f70c26b1",
+            "d85b4fc5440e7d45",
+            "b0aef8b8aec69db9",
+            "0773f40110d5affd",
+            "6dfd74a3fcf7e5ed",
+            "4ab82418ac6e4df1",
+            "3aa0dc7eb3b84136",
+            "1188e6836e8c9984",
+            "e3e9b9cdeb6f948f",
+            "c94b72caf79c0faf"
+        ],
+        "x": 994,
+        "y": 419,
+        "w": 552,
+        "h": 242
+    },
+    {
+        "id": "d78c5d6a493fe4be",
+        "type": "ui_button",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "",
+        "group": "60f50f7f44315fd8",
+        "order": 15,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "Button_ON",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "857ed0c2326fff8a",
+                "bc4ee4c0f4e3e7ee",
+                "d09248b1e9b1ec52"
+            ]
+        ]
+    },
+    {
+        "id": "80146d4370644dd4",
+        "type": "ui_button",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "",
+        "group": "60f50f7f44315fd8",
+        "order": 16,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "Button_OFF",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "bc4ee4c0f4e3e7ee",
+                "857ed0c2326fff8a",
+                "d09248b1e9b1ec52"
+            ]
+        ]
+    },
+    {
+        "id": "b505175bbbfbfe84",
+        "type": "ui_switch",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "group": "60f50f7f44315fd8",
+        "order": 14,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "send",
+        "oncolor": "green",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "red",
+        "animate": false,
+        "className": "switch",
+        "x": 510,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc4ee4c0f4e3e7ee",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "Flow Eneable",
+        "func": "   if(global.get(\"M1\") == 1 || global.get(\"M3\") == 1){\n      flow.set(\"Eneable\",0) \n      msg.payload = \"desativado por outra malha\"\n      return msg;\n   }\n   else{\nif (msg.payload === true) {\n   flow.set(\"Eneable\",1)\n   global.set(\"M2\", 1)\n   msg.payload = \"acionado\"\n   return msg;\n\n}else{\n   flow.set(\"Eneable\",0)\n   global.set(\"M2\", 0)\n   msg.payload = \"desativado\" \n   return msg;\n}\n   }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "7e2948f99b298252"
+            ]
+        ]
+    },
+    {
+        "id": "a5b1e37a7ec5cd3b",
+        "type": "moleculer-PID4",
+        "z": "ac38cb94983d0eb8",
+        "g": "73ee18af5c1bf4eb",
+        "broker": "63ebd62b2640f3f7",
+        "name": "Flow_rate_CTRL_Loop",
+        "topic": "",
+        "options": "{}",
+        "spdyn": "{}",
+        "ident": "3",
+        "pv": "",
+        "setpoint": "",
+        "loopControl": "control-mesh-34.pidplus",
+        "x": 290,
+        "y": 340,
+        "wires": [
+            [
+                "34fddc388fef54d6"
+            ],
+            [
+                "ca246f44b230227a"
+            ]
+        ]
+    },
+    {
+        "id": "ca246f44b230227a",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "73ee18af5c1bf4eb",
+        "name": "Extract inputs from PID4.0/data",
+        "func": "//Extract and individualize input variables from PID4.0/data\nflow.set(\"Ctrl.Loop4.proportionalConstant\", msg.payload.kp);\nflow.set(\"Ctrl.Loop4.integrative\", msg.payload.ti);\nflow.set(\"Ctrl.Loop4.derivative\", msg.payload.td);\nflow.set(\"Ctrl.Loop4.mv\", msg.payload.manipulatedVariable);\nflow.set(\"Ctrl.Loop4.error\", msg.payload.error);\nflow.set(\"setpoint4\", msg.payload.setpoint);\nflow.set(\"Ctrl.Loop4.pv\", msg.payload.pv);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b4c9aa02b60591e6",
+        "type": "ui_chart",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "",
+        "group": "7b042bd4025be431",
+        "order": 1,
+        "width": 20,
+        "height": 7,
+        "label": "SetPoint x Process variable",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "30",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#46e302",
+            "#00d5ff",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 840,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "99720bb9f8b0d32a",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "GET.proportionalConstant",
+        "func": "var local_proportionalConstant = flow.get(\"Ctrl.Loop4.proportionalConstant\");\nmsg.payload = local_proportionalConstant;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 540,
+        "wires": [
+            [
+                "81f0838e29beeb1e"
+            ]
+        ]
+    },
+    {
+        "id": "295e2a790b597726",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "GET.derivativeTimeInMs",
+        "func": "var local_derivativeTimeInMs = flow.get(\"Ctrl.Loop4.derivative\");\nmsg.payload = local_derivativeTimeInMs;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 500,
+        "wires": [
+            [
+                "582660ad796819c9"
+            ]
+        ]
+    },
+    {
+        "id": "749e42f5d8e2002f",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "GET.resetTimeInMs",
+        "func": "var local_resetTimeInMs = flow.get(\"Ctrl.Loop4.integrative\");\nmsg.payload = local_resetTimeInMs;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "4cdc3660af00aa81"
+            ]
+        ]
+    },
+    {
+        "id": "582660ad796819c9",
+        "type": "ui_text",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "group": "60f50f7f44315fd8",
+        "order": 10,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Td",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "Times New Roman,Times,serif",
+        "fontSize": "20",
+        "color": "#469daf",
+        "x": 770,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "81f0838e29beeb1e",
+        "type": "ui_text",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "group": "60f50f7f44315fd8",
+        "order": 7,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "kp",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#469daf",
+        "x": 770,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4cdc3660af00aa81",
+        "type": "ui_text",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "group": "60f50f7f44315fd8",
+        "order": 13,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Ti",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "20",
+        "color": "#469daf",
+        "x": 770,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "32e447140bcaf106",
+        "type": "inject",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "One second cyclical request",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 580,
+        "wires": [
+            [
+                "295e2a790b597726",
+                "99720bb9f8b0d32a",
+                "749e42f5d8e2002f",
+                "3f63f848c1ce2096",
+                "ac93421fb2307efa",
+                "b93b02676ac9149d",
+                "cbecf6d96c5860b6",
+                "4e901b4fa2797696"
+            ]
+        ]
+    },
+    {
+        "id": "3f63f848c1ce2096",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "GET.FIT116",
+        "func": "var local_PIT129 = global.get(\"FIT116\");\nmsg.payload = local_PIT129;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 460,
+        "wires": [
+            [
+                "ceca18fa0506c219"
+            ]
+        ]
+    },
+    {
+        "id": "ceca18fa0506c219",
+        "type": "ui_gauge",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "",
+        "group": "60f50f7f44315fd8",
+        "order": 1,
+        "width": 11,
+        "height": 6,
+        "gtype": "compass",
+        "title": "Flow rate",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 780,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "ac93421fb2307efa",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "GET.manipulated variable",
+        "func": "var local_mv = flow.get(\"Ctrl.Loop4.mv\");\nmsg.payload = local_mv;\nmsg.topic = \"Manipulate variable\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 620,
+        "wires": [
+            [
+                "ff5b4f480fdaa3c2"
+            ]
+        ]
+    },
+    {
+        "id": "ff5b4f480fdaa3c2",
+        "type": "ui_chart",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "",
+        "group": "7b042bd4025be431",
+        "order": 2,
+        "width": 20,
+        "height": 6,
+        "label": "Manipulated variable",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-20",
+        "ymax": "100",
+        "removeOlder": "3",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ffea00",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 820,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b93b02676ac9149d",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "GET.Set Point",
+        "func": "var local_SetPoint = flow.get(\"setpoint4\");\nmsg.payload = local_SetPoint;\nmsg.topic = \"Set Point\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 740,
+        "wires": [
+            [
+                "b4c9aa02b60591e6"
+            ]
+        ]
+    },
+    {
+        "id": "cbecf6d96c5860b6",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "GET.Error",
+        "func": "var local_mv = flow.get(\"Ctrl.Loop4.error\");\nmsg.payload = local_mv;\nmsg.topic = \"Error\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 660,
+        "wires": [
+            [
+                "ff5b4f480fdaa3c2"
+            ]
+        ]
+    },
+    {
+        "id": "857ed0c2326fff8a",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "Enable OFF",
+        "func": "for (let i = 0; i < 3; i++) {\n    if (msg.payload === false) {\n        msg.enable = 1;\n    } else {\n        msg.enable = 0;\n    }\n    \n    msg.mv = 0;\n    node.send(msg); // Envie a mensagem no final de cada iteração\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 120,
+        "wires": [
+            [
+                "f990a852b477f7f0"
+            ]
+        ]
+    },
+    {
+        "id": "34fddc388fef54d6",
+        "type": "moleculer-DAQ_AO_U_WT",
+        "z": "ac38cb94983d0eb8",
+        "g": "73ee18af5c1bf4eb",
+        "broker": "63ebd62b2640f3f7",
+        "name": "Pump 2",
+        "topic": "",
+        "options": "{}",
+        "ident": "6",
+        "out": "Channel_2",
+        "stack": "0",
+        "x": 560,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f990a852b477f7f0",
+        "type": "moleculer-DAQ_AO_U_WT",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "broker": "63ebd62b2640f3f7",
+        "name": "Pump 2",
+        "topic": "",
+        "options": "{}",
+        "ident": "7",
+        "out": "Channel_2",
+        "stack": "0",
+        "x": 600,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f42450e37d94cab",
+        "type": "inject",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "Trigger [enable]",
+        "props": [
+            {
+                "p": "enable",
+                "v": "Eneable",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "ba1b3a9485670bfe"
+            ]
+        ]
+    },
+    {
+        "id": "ba1b3a9485670bfe",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "",
+        "func": " if(msg.enable == 1){\n   msg.payload = true\n   return msg;\n }else{\n    msg.payload = false\n    return msg;\n }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "b505175bbbfbfe84"
+            ]
+        ]
+    },
+    {
+        "id": "7e2948f99b298252",
+        "type": "debug",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "Flow rate",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "mv",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "51f1d3e368357b1c",
+        "type": "ui_dropdown",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select Setpoint",
+        "group": "60f50f7f44315fd8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Sinus Setpoint",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "Cosinus Setpoint",
+                "value": 3,
+                "type": "num"
+            },
+            {
+                "label": "Triangle Setpoint",
+                "value": 4,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 860,
+        "y": 360,
+        "wires": [
+            [
+                "e60b39fd1f5031f1"
+            ]
+        ]
+    },
+    {
+        "id": "52d7ff420ee3667b",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "name": "Sinus wave - Generator",
+        "func": "//Sine wave function calculation\nvar x = flow.get(\"My_arc001\") + ((Math.PI * 2)/300); // ===300 points (seconds) in the arc\nflow.set(\"My_arc001\", x)\nvar SinGen = Math.sin(x);  // === It varies from +1 to -1\nif (flow.get(\"My_arc001\") >= (Math.PI * 2)) { flow.set(\"My_arc001\", 0.0) };\n\n//Scaling [ Y-Y0 = m.(X-X0) ]\nvar VoutMax = 30;\nvar VoutMin = 10;\nvar AngCoef = 2 / (VoutMax - VoutMin);\nvar Vout = ((SinGen+1)/AngCoef) + VoutMin ;\n\n//var Vout = SinGen;\n\n//flow Var Level Setpoint definition\nflow.set(\"SinusSetpoint\", Vout);\nmsg.payload = Vout;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "//O código adicionado aqui será executado uma vez\n// sempre que o nó for iniciado.\n\nflow.set(\"My_arc001\", 0.0); //Varies the number from 0 to Pi*2 (in rad mode)",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 120,
+        "wires": [
+            [
+                "b4f977b9eef2b7ba"
+            ]
+        ]
+    },
+    {
+        "id": "b4f977b9eef2b7ba",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "name": "Ctrl.Loop4.setpoint",
+        "func": "flow.set(\"Ctrl.Loop4.setpoint\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1610,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "092683835ca30e55",
+        "type": "inject",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "select_setpoint_04",
+        "payloadType": "flow",
+        "x": 890,
+        "y": 160,
+        "wires": [
+            [
+                "04c4ee1364ea7655"
+            ]
+        ]
+    },
+    {
+        "id": "e60b39fd1f5031f1",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "name": "select_setpoint_flow_rate",
+        "func": "flow.set(\"select_setpoint_04\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1090,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "04c4ee1364ea7655",
+        "type": "switch",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 1110,
+        "y": 160,
+        "wires": [
+            [
+                "52d7ff420ee3667b"
+            ],
+            [
+                "f03675743a929cd9"
+            ],
+            [
+                "46ceabb350113ccc"
+            ]
+        ]
+    },
+    {
+        "id": "46ceabb350113ccc",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "name": "Triangle wave - Generator   .",
+        "func": "//Triangle wave function calculation\nvar VoutMin = 10;\nvar VoutMax = 30;\n// coef > 1, wave more steep\n// coef = 1, wave in 45 degrees\n// coef < 1, wave less steep\nvar coef =0.20\nvar Vout = flow.get(\"tri\") + (flow.get(\"signal\")* coef);\nflow.set(\"tri\", Vout);\n\n//Definition if it count up or counts down\nif (Vout <= VoutMin) { flow.set(\"signal\", 1);}\n                else { ; }\nif (Vout >= VoutMax) { flow.set(\"signal\",-1);}\n                else { ; }              \n\nflow.set(\"TriangleSetpoint\", Vout);\nmsg.payload = Vout;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "//O código adicionado aqui será executado uma vez\n// sempre que o nó for iniciado.\nvar VoutMin = 30;\nflow.set(\"tri\",VoutMin);\nflow.set(\"signal\", 1);",
+        "finalize": "",
+        "libs": [],
+        "x": 1340,
+        "y": 200,
+        "wires": [
+            [
+                "b4f977b9eef2b7ba"
+            ]
+        ]
+    },
+    {
+        "id": "f03675743a929cd9",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "name": "Cosinus wave - Generator",
+        "func": "//Cosine wave function calculation\n//Sine wave function calculation\nvar x = flow.get(\"My_arc002\") + ((Math.PI *2)/300); //300 points in the arc\nflow.set(\"My_arc002\", x)\nif (flow.get(\"My_arc002\") >= (Math.PI *2)) { flow.set(\"My_arc002\", 0.0) };\nvar CosGen = Math.cos(x);\n\n//Scaling [ Y-Y0 = m.(X-X0) ]\nvar VoutMax = 30;\nvar VoutMin = 10;\nvar AngCoef = 2 / (VoutMax - VoutMin);\nvar Vout = ((CosGen+1)/AngCoef) + VoutMin ;\n\n//flow Var Level Setpoint definition\nflow.set(\"CosinusSetpoint\", Vout);\nmsg.payload = Vout;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "//O código adicionado aqui será executado uma vez\n// sempre que o nó for iniciado.\n\nflow.set(\"My_arc002\", 0.0); //Varies the number from 0 to Pi/2 (in rad mode)",
+        "finalize": "",
+        "libs": [],
+        "x": 1330,
+        "y": 160,
+        "wires": [
+            [
+                "b4f977b9eef2b7ba"
+            ]
+        ]
+    },
+    {
+        "id": "158d7f3a6d632ae6",
+        "type": "ui_text",
+        "z": "ac38cb94983d0eb8",
+        "g": "b253d6814e713044",
+        "group": "60f50f7f44315fd8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Select setpoint",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 880,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "01d30cb3f70c26b1",
+        "type": "ui_numeric",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "",
+        "label": "Kp",
+        "tooltip": "",
+        "group": "60f50f7f44315fd8",
+        "order": 6,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "step": "0.1",
+        "className": "",
+        "x": 1310,
+        "y": 500,
+        "wires": [
+            [
+                "d85b4fc5440e7d45"
+            ]
+        ]
+    },
+    {
+        "id": "d85b4fc5440e7d45",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "Kp",
+        "func": "flow.set(\"kp_4\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b0aef8b8aec69db9",
+        "type": "ui_numeric",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "",
+        "label": "Td",
+        "tooltip": "",
+        "group": "60f50f7f44315fd8",
+        "order": 9,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "30",
+        "step": "0.1",
+        "className": "",
+        "x": 1310,
+        "y": 560,
+        "wires": [
+            [
+                "0773f40110d5affd"
+            ]
+        ]
+    },
+    {
+        "id": "0773f40110d5affd",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "Td",
+        "func": "flow.set(\"Td_4\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6dfd74a3fcf7e5ed",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "Ti",
+        "func": "flow.set(\"Ti_4\", msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1470,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4ab82418ac6e4df1",
+        "type": "ui_numeric",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "",
+        "label": "Ti",
+        "tooltip": "",
+        "group": "60f50f7f44315fd8",
+        "order": 12,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": "0.1",
+        "className": "",
+        "x": 1310,
+        "y": 620,
+        "wires": [
+            [
+                "6dfd74a3fcf7e5ed"
+            ]
+        ]
+    },
+    {
+        "id": "3aa0dc7eb3b84136",
+        "type": "ui_text",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "group": "60f50f7f44315fd8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Select Pid 4.0 Paramas",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1370,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1188e6836e8c9984",
+        "type": "ui_button",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "",
+        "group": "60f50f7f44315fd8",
+        "order": 5,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Standart Kp ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1.2",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1090,
+        "y": 500,
+        "wires": [
+            [
+                "01d30cb3f70c26b1"
+            ]
+        ]
+    },
+    {
+        "id": "e3e9b9cdeb6f948f",
+        "type": "ui_button",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "",
+        "group": "60f50f7f44315fd8",
+        "order": 8,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Standart Td ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1090,
+        "y": 560,
+        "wires": [
+            [
+                "b0aef8b8aec69db9"
+            ]
+        ]
+    },
+    {
+        "id": "c94b72caf79c0faf",
+        "type": "ui_button",
+        "z": "ac38cb94983d0eb8",
+        "g": "fbc3496b9b5d615d",
+        "name": "",
+        "group": "60f50f7f44315fd8",
+        "order": 11,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "Standart Ti ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1.5",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1090,
+        "y": 620,
+        "wires": [
+            [
+                "4ab82418ac6e4df1"
+            ]
+        ]
+    },
+    {
+        "id": "e072665c22766896",
+        "type": "inject",
+        "z": "ac38cb94983d0eb8",
+        "g": "73ee18af5c1bf4eb",
+        "name": "Trigger [enable, SP, PV, kp, td, ti]",
+        "props": [
+            {
+                "p": "enable",
+                "v": "Eneable",
+                "vt": "flow"
+            },
+            {
+                "p": "setpoint",
+                "v": "Ctrl.Loop4.setpoint",
+                "vt": "flow"
+            },
+            {
+                "p": "pv",
+                "v": "FIT116",
+                "vt": "global"
+            },
+            {
+                "p": "kp",
+                "v": "kp_4",
+                "vt": "flow"
+            },
+            {
+                "p": "td",
+                "v": "Td_4",
+                "vt": "flow"
+            },
+            {
+                "p": "ti",
+                "v": "Ti_4",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "topic": "",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "a5b1e37a7ec5cd3b"
+            ]
+        ]
+    },
+    {
+        "id": "9903ba22ef95296a",
+        "type": "comment",
+        "z": "ac38cb94983d0eb8",
+        "name": "Configuracao de valvulas",
+        "info": "valvula controlada em 70\nvalvula manual da frente em 0\nValvula manual de baixo em 100\n\n0 = fechado\n100 = aberto",
+        "x": 850,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d09248b1e9b1ec52",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "name": "Enable electro valve",
+        "func": "for (let i = 0; i < 3; i++) {\n    if (msg.payload === true) {\n        msg.enable = 1;\n        msg.mv = 70;\n    } else {\n        msg.enable = 0;\n        msg.mv = 100;\n    }\n    \n   \n    node.send(msg); // Envie a mensagem no final de cada iteração\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "c8fe68f506c11690"
+            ]
+        ]
+    },
+    {
+        "id": "c8fe68f506c11690",
+        "type": "moleculer-DAQ_AO_U_WT",
+        "z": "ac38cb94983d0eb8",
+        "g": "dd4409398f1f0774",
+        "broker": "63ebd62b2640f3f7",
+        "name": "Electro valve",
+        "topic": "",
+        "options": "{}",
+        "ident": "5",
+        "out": "Channel_3",
+        "stack": "0",
+        "x": 630,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4e901b4fa2797696",
+        "type": "function",
+        "z": "ac38cb94983d0eb8",
+        "g": "1eb1e7c78e7578db",
+        "name": "pv",
+        "func": "var local_pv = flow.get(\"Ctrl.Loop4.pv\");\nmsg.payload = local_pv;\nmsg.topic = \"Process variable\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 700,
+        "wires": [
+            [
+                "b4c9aa02b60591e6"
+            ]
+        ]
+    },
+    {
+        "id": "60f50f7f44315fd8",
+        "type": "ui_group",
+        "name": "Input data",
+        "tab": "06ab69bf3e6de9f5",
+        "order": 1,
+        "disp": false,
+        "width": 11,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "63ebd62b2640f3f7",
+        "type": "moleculer-config",
+        "name": "NATS_ext",
+        "options": "{\"transporter\":\"nats://192.168.1.201:4222\"}"
+    },
+    {
+        "id": "7b042bd4025be431",
+        "type": "ui_group",
+        "name": "Graphics",
+        "tab": "06ab69bf3e6de9f5",
+        "order": 2,
+        "disp": false,
+        "width": 20,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "06ab69bf3e6de9f5",
+        "type": "ui_tab",
+        "name": "Flow rate",
+        "icon": "dashboard",
+        "order": 5,
+        "disabled": false,
+        "hidden": false
+    }
+]
