@@ -1,0 +1,9 @@
+..\moleculer_client\__init__.py
+..\moleculer_client\__pycache__\__init__.cpython-310.pyc
+..\moleculer_client\__pycache__\moleculer_client.cpython-310.pyc
+..\moleculer_client\moleculer_client.py
+PKG-INFO
+SOURCES.txt
+dependency_links.txt
+requires.txt
+top_level.txt

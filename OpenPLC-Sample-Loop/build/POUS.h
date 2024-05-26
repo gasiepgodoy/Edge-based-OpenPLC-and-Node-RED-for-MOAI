@@ -67,7 +67,6 @@ typedef struct {
 
   // PROGRAM private variables - TEMP, private and located variables
   __DECLARE_EXTERNAL(BOOL,ALIVE)
-  __DECLARE_VAR(BOOL,ALIVE0)
   TON TON0;
   TON TON1;
   __DECLARE_EXTERNAL(BOOL,ALWAYS_FALSE)
@@ -76,8 +75,6 @@ typedef struct {
   __DECLARE_EXTERNAL(REAL,DAQ_AI_I_CH2)
   __DECLARE_EXTERNAL(REAL,DAQ_AI_I_CH3)
   __DECLARE_EXTERNAL(REAL,DAQ_AI_I_CH4)
-  TON TON2;
-  TON TON3;
 
 } A_MAIN_ROUTINE;
 

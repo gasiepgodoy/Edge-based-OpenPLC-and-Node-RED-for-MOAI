@@ -67,11 +67,12 @@ void B_PID4_ROUTINE_init__(B_PID4_ROUTINE *data__, BOOL retain) {
 void B_PID4_ROUTINE_body__(B_PID4_ROUTINE *data__) {
   // Initialise TEMP variables
 
-  __SET_VAR(data__->DAQ_AI_I0.,DAQ_AI_I_ENABLE,,__GET_EXTERNAL(data__->ALWAYS_TRUE,));
+  __SET_VAR(data__->DAQ_AI_I0.,DAQ_AI_I_ENABLE,,1);
   __SET_VAR(data__->DAQ_AI_I0.,DAQ_AI_I_STACK,,0);
   __SET_VAR(data__->DAQ_AI_I0.,DAQ_AI_I_CHANNEL,,3);
   DAQ_AI_I_body__(&data__->DAQ_AI_I0);
   __SET_VAR(data__->,LIT_125,,__GET_VAR(data__->DAQ_AI_I0.DAQ_AI_I_ANSWER,));
+  __SET_VAR(data__->PID_4_00.,ENABLE,,__GET_EXTERNAL(data__->ALWAYS_TRUE,));
   __SET_VAR(data__->PID_4_00.,CTRL_LOOP_INDEX,,1);
   __SET_VAR(data__->PID_4_00.,KP,,30.0);
   __SET_VAR(data__->PID_4_00.,TI,,5.0);
@@ -86,8 +87,9 @@ void B_PID4_ROUTINE_body__(B_PID4_ROUTINE *data__) {
   __SET_VAR(data__->,PUMP_SPEED,,__GET_VAR(data__->_TMP_REAL_TO_INT90_OUT,));
   __SET_VAR(data__->,INTEGRATIVE,,__GET_VAR(data__->PID_4_00.INTEGRATIVE,));
   __SET_VAR(data__->,TIMEVAR,,__GET_VAR(data__->PID_4_00.TIMEVAR,));
+  __SET_VAR(data__->,ERROR,,__GET_VAR(data__->PID_4_00.ERROR,));
   __SET_EXTERNAL(data__->,PID_OUT,,__GET_VAR(data__->_TMP_REAL_TO_INT90_OUT,));
-  __SET_VAR(data__->DAQ_AO_U_WT0.,DAQ_AO_U_WT_ENABLE,,__GET_EXTERNAL(data__->ALWAYS_TRUE,));
+  __SET_VAR(data__->DAQ_AO_U_WT0.,DAQ_AO_U_WT_ENABLE,,1);
   __SET_VAR(data__->DAQ_AO_U_WT0.,DAQ_AO_U_WT_STACK,,0);
   __SET_VAR(data__->DAQ_AO_U_WT0.,DAQ_AO_U_WT_CHANNEL,,2);
   __SET_VAR(data__->DAQ_AO_U_WT0.,DAQ_AO_U_WT_VALUE,,__GET_VAR(data__->PUMP_SPEED,));
@@ -105,7 +107,6 @@ __end:
 
 void A_MAIN_ROUTINE_init__(A_MAIN_ROUTINE *data__, BOOL retain) {
   __INIT_EXTERNAL(BOOL,ALIVE,data__->ALIVE,retain)
-  __INIT_VAR(data__->ALIVE0,__BOOL_LITERAL(FALSE),retain)
   TON_init__(&data__->TON0,retain);
   TON_init__(&data__->TON1,retain);
   __INIT_EXTERNAL(BOOL,ALWAYS_FALSE,data__->ALWAYS_FALSE,retain)
@@ -114,8 +115,6 @@ void A_MAIN_ROUTINE_init__(A_MAIN_ROUTINE *data__, BOOL retain) {
   __INIT_EXTERNAL(REAL,DAQ_AI_I_CH2,data__->DAQ_AI_I_CH2,retain)
   __INIT_EXTERNAL(REAL,DAQ_AI_I_CH3,data__->DAQ_AI_I_CH3,retain)
   __INIT_EXTERNAL(REAL,DAQ_AI_I_CH4,data__->DAQ_AI_I_CH4,retain)
-  TON_init__(&data__->TON2,retain);
-  TON_init__(&data__->TON3,retain);
 }
 
 // Code part
@@ -132,16 +131,9 @@ void A_MAIN_ROUTINE_body__(A_MAIN_ROUTINE *data__) {
   if (!(__GET_EXTERNAL(data__->ALWAYS_TRUE,))) {
     __SET_EXTERNAL(data__->,ALWAYS_TRUE,,__BOOL_LITERAL(TRUE));
   };
-  __SET_VAR(data__->TON2.,IN,,!(__GET_VAR(data__->TON3.Q,)));
-  __SET_VAR(data__->TON2.,PT,,__time_to_timespec(1, 10000, 0, 0, 0, 0));
-  TON_body__(&data__->TON2);
-  __SET_VAR(data__->,ALIVE0,,__GET_VAR(data__->TON2.Q,));
   __SET_VAR(data__->TON1.,IN,,__GET_VAR(data__->TON0.Q,));
   __SET_VAR(data__->TON1.,PT,,__time_to_timespec(1, 5000, 0, 0, 0, 0));
   TON_body__(&data__->TON1);
-  __SET_VAR(data__->TON3.,IN,,__GET_VAR(data__->TON2.Q,));
-  __SET_VAR(data__->TON3.,PT,,__time_to_timespec(1, 10000, 0, 0, 0, 0));
-  TON_body__(&data__->TON3);
 
   goto __end;
 

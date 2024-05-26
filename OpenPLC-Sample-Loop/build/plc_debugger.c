@@ -207,7 +207,6 @@ static const dbgvardsc_t dbgvardsc[] = {
 {&(RES0__OUT_CV_PSM), INT_ENUM},
 {&(RES0__PID_OUT), INT_ENUM},
 {&(RES0__INSTANCE00.ALIVE), BOOL_P_ENUM},
-{&(RES0__INSTANCE00.ALIVE0), BOOL_ENUM},
 {&(RES0__INSTANCE00.TON0.EN), BOOL_ENUM},
 {&(RES0__INSTANCE00.TON0.ENO), BOOL_ENUM},
 {&(RES0__INSTANCE00.TON0.IN), BOOL_ENUM},
@@ -234,26 +233,6 @@ static const dbgvardsc_t dbgvardsc[] = {
 {&(RES0__INSTANCE00.DAQ_AI_I_CH2), REAL_P_ENUM},
 {&(RES0__INSTANCE00.DAQ_AI_I_CH3), REAL_P_ENUM},
 {&(RES0__INSTANCE00.DAQ_AI_I_CH4), REAL_P_ENUM},
-{&(RES0__INSTANCE00.TON2.EN), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON2.ENO), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON2.IN), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON2.PT), TIME_ENUM},
-{&(RES0__INSTANCE00.TON2.Q), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON2.ET), TIME_ENUM},
-{&(RES0__INSTANCE00.TON2.STATE), SINT_ENUM},
-{&(RES0__INSTANCE00.TON2.PREV_IN), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON2.CURRENT_TIME), TIME_ENUM},
-{&(RES0__INSTANCE00.TON2.START_TIME), TIME_ENUM},
-{&(RES0__INSTANCE00.TON3.EN), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON3.ENO), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON3.IN), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON3.PT), TIME_ENUM},
-{&(RES0__INSTANCE00.TON3.Q), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON3.ET), TIME_ENUM},
-{&(RES0__INSTANCE00.TON3.STATE), SINT_ENUM},
-{&(RES0__INSTANCE00.TON3.PREV_IN), BOOL_ENUM},
-{&(RES0__INSTANCE00.TON3.CURRENT_TIME), TIME_ENUM},
-{&(RES0__INSTANCE00.TON3.START_TIME), TIME_ENUM},
 {&(RES0__INSTANCE01.ALWAYS_FALSE), BOOL_P_ENUM},
 {&(RES0__INSTANCE01.ALIVE), BOOL_P_ENUM},
 {&(RES0__INSTANCE01.ALWAYS_TRUE), BOOL_P_ENUM},
@@ -667,6 +646,7 @@ void __publish_debug(void)
                     /* replace pointer with pointer to force_buffer */                  \
                     ((__IEC_##TYPENAME##_p *)varp)->value =                             \
                         (TYPENAME *)force_buffer_cursor;                                \
+                    (((__IEC_##TYPENAME##_p *)varp)->fvalue) = *((TYPENAME *)force);    \
                     /* mark variable as forced */                                       \
                     ((__IEC_##TYPENAME##_p *)varp)->flags |= __IEC_FORCE_FLAG;          \
                     /* inc force_buffer cursor */                                       \

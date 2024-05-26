@@ -44,23 +44,16 @@ PROGRAM a_Main_routine
     Alive : BOOL;
   END_VAR
   VAR
-    Alive0 : BOOL;
     TON0 : TON;
     TON1 : TON;
   END_VAR
   VAR_EXTERNAL
     always_false : BOOL;
     always_true : BOOL;
-  END_VAR
-  VAR_EXTERNAL
     DAQ_AI_I_ch1 : REAL;
     DAQ_AI_I_ch2 : REAL;
     DAQ_AI_I_ch3 : REAL;
     DAQ_AI_I_ch4 : REAL;
-  END_VAR
-  VAR
-    TON2 : TON;
-    TON3 : TON;
   END_VAR
 
   TON0(IN := NOT(TON1.q), PT := T#5000ms);
@@ -71,10 +64,7 @@ PROGRAM a_Main_routine
   IF NOT(always_true) THEN
     always_true := TRUE; (*set*)
   END_IF;
-  TON2(IN := NOT(TON3.q), PT := T#10000ms);
-  Alive0 := TON2.Q;
   TON1(IN := TON0.Q, PT := T#5000ms);
-  TON3(IN := TON2.Q, PT := T#10000ms);
 END_PROGRAM
 
 
@@ -84,7 +74,7 @@ CONFIGURATION Config0
     VAR_GLOBAL
       always_false AT %QX0.0 : BOOL := 0;
       always_true AT %QX0.1 : BOOL := 1;
-      Alive AT %QX0.2 : BOOL;
+      Alive AT %QX0.2 : BOOL := 0;
       DAQ_AI_I_ENABLE_PSM AT %QX1.0 : BOOL := 0;
       DAQ_AI_I_STACK_PSM AT %QW14 : INT := 0;
       DAQ_AI_I_CHANNEL_PSM AT %QW15 : INT := 0;

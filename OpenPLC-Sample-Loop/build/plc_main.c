@@ -40,6 +40,7 @@ static int init_level = 0;
  **/
 
 
+
 /*
  * Retrieve input variables, run PLC and publish output variables
  **/
@@ -51,6 +52,7 @@ void __run(void)
 
     
 
+
     /*__retrieve_debug();*/
 
     config_run__(__tick);
@@ -58,6 +60,7 @@ void __run(void)
     __publish_debug();
 
     
+
 
 }
 
@@ -77,6 +80,7 @@ int __init(int argc,char **argv)
     config_init__();
     __init_debug();
     
+
     return res;
 }
 /*
@@ -85,6 +89,7 @@ int __init(int argc,char **argv)
 void __cleanup(void)
 {
     
+
     __cleanup_debug();
 }
 

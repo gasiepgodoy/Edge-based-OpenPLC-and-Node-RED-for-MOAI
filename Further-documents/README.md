@@ -8,3 +8,6 @@ Dcouments are:
 
 - Moleculer-Client-for-OpenPLC   
 Copy these files on  C:\cygwin64\home\Windows10\OpenPLC_v3\webserver\core\psm  
+
+- psm
+\OpenPLC_v3\webserver\core\psm

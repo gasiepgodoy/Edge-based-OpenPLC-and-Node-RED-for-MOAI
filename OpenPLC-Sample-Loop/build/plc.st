@@ -50,15 +50,16 @@ PROGRAM b_PID4_routine
     _TMP_REAL_TO_INT90_OUT : INT;
   END_VAR
 
-  DAQ_AI_I0(DAQ_AI_I_ENABLE := always_true, DAQ_AI_I_STACK := 0, DAQ_AI_I_CHANNEL := 3);
+  DAQ_AI_I0(DAQ_AI_I_ENABLE := 1, DAQ_AI_I_STACK := 0, DAQ_AI_I_CHANNEL := 3);
   LIT_125 := DAQ_AI_I0.DAQ_AI_I_ANSWER;
-  PID_4_00(CTRL_LOOP_INDEX := 1, KP := 30.0, TI := 5.0, TD := 0.01, SP := 50.0, PV := LIT_125);
+  PID_4_00(ENABLE := always_true, CTRL_LOOP_INDEX := 1, KP := 30.0, TI := 5.0, TD := 0.01, SP := 50.0, PV := LIT_125);
   _TMP_REAL_TO_INT90_OUT := REAL_TO_INT(PID_4_00.OUT_CV);
   PUMP_SPEED := _TMP_REAL_TO_INT90_OUT;
   INTEGRATIVE := PID_4_00.INTEGRATIVE;
   TIMEvar := PID_4_00.TIMEvar;
+  ERROR := PID_4_00.ERROR;
   PID_OUT := _TMP_REAL_TO_INT90_OUT;
-  DAQ_AO_U_WT0(DAQ_AO_U_WT_ENABLE := always_true, DAQ_AO_U_WT_STACK := 0, DAQ_AO_U_WT_CHANNEL := 2, DAQ_AO_U_WT_VALUE := PUMP_SPEED);
+  DAQ_AO_U_WT0(DAQ_AO_U_WT_ENABLE := 1, DAQ_AO_U_WT_STACK := 0, DAQ_AO_U_WT_CHANNEL := 2, DAQ_AO_U_WT_VALUE := PUMP_SPEED);
 END_PROGRAM
 
 PROGRAM a_Main_routine
@@ -66,23 +67,16 @@ PROGRAM a_Main_routine
     Alive : BOOL;
   END_VAR
   VAR
-    Alive0 : BOOL;
     TON0 : TON;
     TON1 : TON;
   END_VAR
   VAR_EXTERNAL
     always_false : BOOL;
     always_true : BOOL;
-  END_VAR
-  VAR_EXTERNAL
     DAQ_AI_I_ch1 : REAL;
     DAQ_AI_I_ch2 : REAL;
     DAQ_AI_I_ch3 : REAL;
     DAQ_AI_I_ch4 : REAL;
-  END_VAR
-  VAR
-    TON2 : TON;
-    TON3 : TON;
   END_VAR
 
   TON0(IN := NOT(TON1.q), PT := T#5000ms);
@@ -93,10 +87,7 @@ PROGRAM a_Main_routine
   IF NOT(always_true) THEN
     always_true := TRUE; (*set*)
   END_IF;
-  TON2(IN := NOT(TON3.q), PT := T#10000ms);
-  Alive0 := TON2.Q;
   TON1(IN := TON0.Q, PT := T#5000ms);
-  TON3(IN := TON2.Q, PT := T#10000ms);
 END_PROGRAM
 
 
@@ -106,7 +97,7 @@ CONFIGURATION Config0
     VAR_GLOBAL
       always_false : BOOL := 0;
       always_true : BOOL := 1;
-      Alive : BOOL;
+      Alive : BOOL := 0;
       DAQ_AI_I_ENABLE_PSM : BOOL := 0;
       DAQ_AI_I_STACK_PSM : INT := 0;
       DAQ_AI_I_CHANNEL_PSM : INT := 0;
