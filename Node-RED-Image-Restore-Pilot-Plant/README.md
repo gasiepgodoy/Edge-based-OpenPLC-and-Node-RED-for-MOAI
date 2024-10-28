@@ -7,7 +7,7 @@ Below are the services currently running on moleculer REPL, they are required to
 
 ## From Docker-Hub:
 
-1 - Once Node-Red applications were conteinerized you can install from the public directory under the command:   
+1 - Once Node-Red applications were containerized you can install from the public directory under the command:   
       > docker pull eviana/pilot-plant-node-red-image:latest   
 
 2 - And run the container via Docker Hub at rasp prompt:   
