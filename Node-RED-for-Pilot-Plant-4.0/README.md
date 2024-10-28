@@ -24,23 +24,6 @@ Node Red client for Moleculer with suported lybraries developed for Pilot Plant 
 
 # Install Instructions
 
-Below are the services currently running on moleculer REPL, they are required to the proper function of the control loops.
-<p align="center">
- <img src="src/moleculer_services.png" />
-</p>
-
-## From Docker-Hub:
-
-Once Node-Red applications were conteinerized you can install from the public directory under the command:
-      docker pull eviana/pilot-plant-node-red-image:latest
-
-And run the container via Docker Hub at rasp prompt:
-      docker run --name node-red-iotgasi -p 1880:1880 eviana/pilot-plant-node-red-image:latest
-
-## Notes: 
-Any further configuration can be eaily done thru Portainer at 192.168.1.108:9000 [admin/admin]
-The image above contains all functionalities already working, anyhow if you need to install any additional blocks, please see below commands:
-
 On ~/.node-red folder you must type:   
 ```npm install node-red-contrib-pilot-plant-control```   
 

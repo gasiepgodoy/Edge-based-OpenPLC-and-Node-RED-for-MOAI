@@ -1,22 +1,37 @@
 # Node-RED image restoration
 
-The containerized Node-Red image for pilot plant control was stored in Docker Hub at the address:
-eviana/pilot-plant-node-red-image
-
-Download the image thru the following command:
-docker pull eviana/pilot-plant-node-red-image:latest (don´t you use sudo command)
-
-
-
+Below are the services currently running on moleculer REPL, they are required to the proper function of the control loops.
 <p align="center">
-   <img src="src/docs/OpenPLC-editor.png" />
+ <img src="src/moleculer_services.png" />
 </p>
 
-Moleculer_Framework_PSM_Blocks for OpenPLC.    
-This is the library set of blocks which allows to create the following blocks on openPLC:  
-![My Image](src/docs/PSM-Blocks.png)
+## From Docker-Hub:
 
-The file PSM_code_r03, shall be pasted inside the PSM coding area on openPLC runtime.  
-Open this folder on OpenPLC editor to see the blocks, you may compile and re-generate the file Moleculer_Framework_PSM_Blocks.st, loading it on openPLC importing tool generate the library.   
-Open PLC importing tool: https://autonomylogic.com/docs/3-3-adding-new-blocks-to-openplc-editors-library/     
-Please carry on some tests and provide feedback to: eduardo.viana@unesp.br   
+Once Node-Red applications were conteinerized you can install from the public directory under the command:
+      docker pull eviana/pilot-plant-node-red-image:latest
+
+And run the container via Docker Hub at rasp prompt:
+      docker run --name node-red-iotgasi -p 1880:1880 eviana/pilot-plant-node-red-image:latest
+
+## Notes: 
+Any further configuration can be easily done thru Portainer at 192.168.1.108:9000 [admin/admin]
+The image above contains all functionalities already working, anyhow if you need to install any additional blocks, please see below commands:
+
+
+The containerized Node-Red image for Pilot Plant 4.0 control was stored in Docker Hub at the address:
+eviana/pilot-plant-node-red-image
+
+The following steps must be taken: 
+
+1-Download the image thru the following command:
+     docker pull eviana/pilot-plant-node-red-image:latest (don´t you use sudo command)
+
+2-Run docker command and build the container:
+     docker run --name node-red-iotgasi -p -1880 eviana/pilot-plant-node-red-image:latest
+
+3-Use portainer to easily manage the container named "node-red-iotgasi"
+
+
+Please test and provide feedback to: eduardo.viana@unesp.br
+
+  
