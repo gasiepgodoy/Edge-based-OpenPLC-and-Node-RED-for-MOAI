@@ -54,4 +54,6 @@ To know a little more:
 - [Microservice-Oriented Architecture for I4.0](https://www.mdpi.com/2673-4117/4/2/69).    
 - [Industrial Automation as a Service](https://ieeexplore.ieee.org/document/9480146).  
 - [Node-RED - Creating your first node](https://nodered.org/docs/creating-nodes/first-node).    
-- [Youtube tutorials](https://www.youtube.com/@engenheiroseletronicos3351).     
+- [Youtube tutorials](https://www.youtube.com/@engenheiroseletronicos3351).   
+
+last update 2024.10.28
