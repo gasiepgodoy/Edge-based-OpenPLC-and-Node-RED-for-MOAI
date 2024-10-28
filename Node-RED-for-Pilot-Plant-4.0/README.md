@@ -29,7 +29,8 @@ Below are the services currently running on moleculer REPL, they are required to
  <img src="src/moleculer_services.png" />
 </p>
 
-From Docker-Hub:
+### From Docker-Hub:
+
 Once Node-Red applications were conteinerized you can install from the public directory under the command:
       docker pull eviana/pilot-plant-node-red-image:latest
 
