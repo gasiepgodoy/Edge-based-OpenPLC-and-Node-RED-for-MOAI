@@ -56,4 +56,4 @@ To know a little more:
 - [Node-RED - Creating your first node](https://nodered.org/docs/creating-nodes/first-node).    
 - [Youtube tutorials](https://www.youtube.com/@engenheiroseletronicos3351).   
 
-last update 2024.10.28
+last update 2025.08.05
